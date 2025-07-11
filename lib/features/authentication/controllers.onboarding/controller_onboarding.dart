@@ -1,6 +1,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:t_store/features/authentication/screens/login/login_screen.dart';
 
 class OnBoardingController extends GetxController{
   // Tạo singleTon instance
@@ -32,8 +33,7 @@ class OnBoardingController extends GetxController{
   void nextPage() {
     int index = currentPageIndex.value;
     if( index >= 2){
-      // go to login
-      print('go to login');
+      Get.offAll(const LoginScreen());
     } else {
       currentPageIndex.value++;
       jumtToPageAnimation(index + 1);
