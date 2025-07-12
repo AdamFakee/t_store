@@ -43,6 +43,7 @@ flutter:
     - assets/images/on_boarding_images/third.gif
     # - assets/logos/google-icon.png
     # - assets/logos/facebook-icon.png
+    - assets/images/create_account_success.jpg
     - assets/logos/
     - assets/icons/
     - assets/images/

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/features/authentication/screens/register_screen/verify_email.dart';
 import 'package:t_store/features/authentication/screens/register_screen/widgets/term_and_condition.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -91,7 +93,9 @@ class TRegisterForm extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => const VerifyEmailScreen());
+            },
             child: Text(TTexts.createAccount),
           ),
         ),

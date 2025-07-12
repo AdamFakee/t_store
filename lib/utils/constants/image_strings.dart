@@ -12,4 +12,9 @@ class TImage {
   static const String onBoardingImage1 = "assets/images/on_boarding_images/first.gif";
   static const String onBoardingImage2 = "assets/images/on_boarding_images/second.gif";
   static const String onBoardingImage3 = "assets/images/on_boarding_images/third.gif";
+
+  // SignIn Images
+  static const String sendingEmail = "assets/images/on_boarding_images/first.gif";
+  static const String sendEmailSuccess = "assets/images/on_boarding_images/first.gif";
+  static const String createAccountSuccess = "assets/images/on_boarding_images/third.gif";
 }

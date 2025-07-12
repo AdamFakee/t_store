@@ -1,7 +1,7 @@
 // This class contains all the App Text in String formats.
 class TTexts {
   // -- GLOBAL Texts
-
+  static const String continueText = 'Continue';
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Choose your product";
   static const String onBoardingTitle2 = "Select Payment Method";
@@ -50,4 +50,7 @@ class TTexts {
   static const String emailNotReceivedMessage = "Didn't get the email? Check your junk/spam or resend it.";
   static const String yourAccountCreatedTitle = "Your account successfully created!";
   static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
+
+  // contact me
+  static const String myEmailAddress = "buidinhtuan04@gmail.com";
 }
