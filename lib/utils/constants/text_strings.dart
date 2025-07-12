@@ -30,6 +30,7 @@ class TTexts {
   static const String orSignInWith = "Or Sign in with";
   static const String orSignUpWith = "Or Sign up with";
   static const String iAgreeTo = "I agree to";
+  static const String and = "and";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of Use";
   static const String verificationCode = "verificationCode";
