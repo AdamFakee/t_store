@@ -2,6 +2,9 @@
 class TTexts {
   // -- GLOBAL Texts
   static const String continueText = 'Continue';
+  static const String submit = "Submit";
+  static const String done = 'Done';
+
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Choose your product";
   static const String onBoardingTitle2 = "Select Payment Method";
