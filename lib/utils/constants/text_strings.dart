@@ -56,4 +56,10 @@ class TTexts {
 
   // contact me
   static const String myEmailAddress = "buidinhtuan04@gmail.com";
+
+  // Navigation menu
+  static const String home = "Home";
+  static const String store = "Store";
+  static const String withList = "Withlist";
+  static const String profile = "Profile";
 }
