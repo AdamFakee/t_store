@@ -3,3 +3,5 @@
 # commit 1 : create project structure, config theme dark-light mode
 # commit 2: add content for utils => just copy-paste, not understand all of this
 
+# commit "feature: clip path for container" => dùng clippath để cắt container tạo hiệu ứng như kiểu có 2 cái chân....cần học cắt mấy hình khó hơn thay vì mấy hình cơ bản
+

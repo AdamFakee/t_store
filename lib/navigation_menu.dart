@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -64,7 +65,7 @@ class NavigationControler extends GetxController {
   Widget screen() {
     switch (selectedIndex.value) {
       case 0:
-        return Container(color: Colors.red,);
+        return const HomeScreen();
       case 1:
         return Container(color: Colors.yellow,);
       case 2:
@@ -74,7 +75,7 @@ class NavigationControler extends GetxController {
       
       // default = case 0
       default:
-        return Container(color: Colors.red,);
+        return const HomeScreen();
     }
   }
 
