@@ -20,6 +20,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
         color: TColors.primary,
         // Không dùng fixed height để tăng tính mở rộng và tái sử dụng cho đoạn code
         child: SizedBox(
+          height: 400,
           child: Stack(
             children: [
               Positioned(
