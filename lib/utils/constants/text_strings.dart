@@ -17,6 +17,9 @@ class TTexts {
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Adam fakee";
+  static const String searchPlaceholder = "Search in Store";
+  static const String categoryPopularTitle = "Popular Categories";
+  static const String viewAll = "View all";
 
    // -- Authentication Form Text
   static const String firstName = "First Name";
