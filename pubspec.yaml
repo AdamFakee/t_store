@@ -17,6 +17,7 @@ dependencies:
   url_launcher: ^6.1.12
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^1.2.1
+  carousel_slider: ^5.1.1
 
   # Icons
   iconsax: ^0.0.8
@@ -41,9 +42,7 @@ flutter:
     - assets/images/on_boarding_images/second.gif
     - assets/images/on_boarding_images/first.gif
     - assets/images/on_boarding_images/third.gif
-    # - assets/logos/google-icon.png
-    # - assets/logos/facebook-icon.png
-    - assets/images/create_account_success.jpg
+    - assets/images/banners/banner_1.jpg
     - assets/logos/
     - assets/icons/
     - assets/images/

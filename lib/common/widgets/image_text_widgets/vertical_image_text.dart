@@ -5,9 +5,10 @@ import 'package:t_store/utils/constants/sizes.dart';
 
 class TVeritcalImageText extends StatelessWidget {
   const TVeritcalImageText({
-    super.key, required this.image, required this.title, this.textColor = TColors.white, this.backgroundColor = TColors.white, this.onTap,
+    super.key, required this.image, required this.title, this.textColor = TColors.white, this.backgroundColor = TColors.white, this.onTap, this.isNetworkImage = false
   });
 
+  final bool isNetworkImage;
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
@@ -31,9 +32,9 @@ class TVeritcalImageText extends StatelessWidget {
               // widget tạo ảnh bo góc tròn
               child: CircleAvatar(
                 radius: 20, // Thuộc tính này là size của image
-                backgroundImage: AssetImage(
+                backgroundImage: isNetworkImage ? NetworkImage(
                   image,
-                ),
+                ) : AssetImage(image), 
               ),
             ),
           ),
