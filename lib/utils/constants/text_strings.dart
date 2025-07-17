@@ -20,6 +20,7 @@ class TTexts {
   static const String searchPlaceholder = "Search in Store";
   static const String categoryPopularTitle = "Popular Categories";
   static const String viewAll = "View all";
+  static const String productPopularTitle = "Products popular";
 
    // -- Authentication Form Text
   static const String firstName = "First Name";
@@ -65,4 +66,5 @@ class TTexts {
   static const String store = "Store";
   static const String withList = "Withlist";
   static const String profile = "Profile";
+
 }
