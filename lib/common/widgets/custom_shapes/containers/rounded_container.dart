@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
 
-class TCircularContainer extends StatelessWidget {
-  const TCircularContainer({
+class TRoundedContainer extends StatelessWidget {
+  /// a widget like TCircularContainer but don't require width, height
+  const TRoundedContainer({
     super.key,
-    this.width = 400,
-    this.height = 400,
+    this.width,
+    this.height,
     this.backgroundColor = TColors.white,
     this.child,
-    this.radius = 400,
+    this.radius = 20,
     this.padding,
     this.showBorder = false
   });
 
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final Color backgroundColor;
   final Widget? child;
   final double radius;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/features/shop/screens/home/home.dart';
+import 'package:t_store/features/shop/screens/store/store.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -67,7 +68,7 @@ class NavigationControler extends GetxController {
       case 0:
         return const HomeScreen();
       case 1:
-        return Container(color: Colors.yellow,);
+        return const Store();
       case 2:
         return Container(color: Colors.green,);
       case 3:

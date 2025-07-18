@@ -18,7 +18,7 @@ class TCartCounterIcon extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         IconButton(
-          icon: Icon(Iconsax.shopping_bag, color: TColors.white),
+          icon: Icon(Iconsax.shopping_bag, color: iconColor),
           onPressed: onPressed,
         ),
         Positioned(
@@ -36,7 +36,7 @@ class TCartCounterIcon extends StatelessWidget {
                 "2",
                 style: Theme.of(
                   context,
-                ).textTheme.labelMedium!.apply(color: iconColor),
+                ).textTheme.labelMedium!.apply(color: TColors.light),
               ),
             ),
           ),

@@ -67,4 +67,15 @@ class TTexts {
   static const String withList = "Withlist";
   static const String profile = "Profile";
 
+  /// -- Store
+  static const String featuredBrand = "Featured Brands";
+  static const String youMightLike = "You might like";
+
+  /// -- Tabbar
+  static const String sportTabbar = "Sports";
+  static const String furnitureTabbar = "Furniture";
+  static const String electronicTabbar = "Electronics";
+  static const String clothesTabbar = "Clothes";
+  static const String hatTabbar = "Hats";
+
 }

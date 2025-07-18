@@ -30,4 +30,7 @@ class TImage {
   // --Product
   static const String tShirt = "https://plus.unsplash.com/premium_photo-1683140435505-afb6f1738d11?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHx8fDA%3D";
   static const String shoeSnaker = "https://images.unsplash.com/photo-1521093470119-a3acdc43374a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmlrZXxlbnwwfHwwfHx8MA%3D%3D";
+
+  // brand icon
+  static String brandNike = "https://images.unsplash.com/photo-1674976177861-90c0d23fec48?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG5pa2UlMjBpY29ufGVufDB8fDB8fHww";
 }
