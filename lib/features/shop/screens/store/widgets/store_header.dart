@@ -18,9 +18,9 @@ class TStoreHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDarkMode = THelperFunctions.isDarkMode(context);
     return SliverAppBar(
-      floating: true,
-      pinned: true,
-      snap: false,
+      floating: true, // hiển thị tabbar nổi lên
+      pinned: true, // pin tabbar
+      snap: false, // chịu
       backgroundColor: isDarkMode ? TColors.black : TColors.white,
       expandedHeight: 420,
       flexibleSpace: Padding(
