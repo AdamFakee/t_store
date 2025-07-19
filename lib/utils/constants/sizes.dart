@@ -69,6 +69,6 @@ class TSizes {
 
   // Card height
   static const double productVerticalHeight = 288;
-  static const double productHorizontalHeight = 120;
+  static const double productHorizontalHeight = 100;
 
 }

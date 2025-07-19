@@ -42,7 +42,7 @@ class TCategoryTab extends StatelessWidget {
         TGridLayout(
           itemCount: 4,
           crossAxisCount: 1,
-          mainAxisExtent: 100,
+          mainAxisExtent: TSizes.productHorizontalHeight,
           itemBuilder: (_, index) => TProductCardHorizontal(),
         ),
       ],

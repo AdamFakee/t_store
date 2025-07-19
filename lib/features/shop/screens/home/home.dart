@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                   TGridLayout(
                     itemCount: 10,
                     crossAxisCount: 2,
-                    mainAxisExtent: 288,
+                    mainAxisExtent: TSizes.productVerticalHeight,
                     itemBuilder: (_, _) => TProductCardVertical(),
                   ),
                 ],
