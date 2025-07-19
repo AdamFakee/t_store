@@ -1,4 +1,7 @@
 class TSizes {
+  /// Container height
+  static const double headerContainerHome = 380;
+  static const double headerContainerProfile = 200;
 
   // Padding and margin sizes
   static const double xs = 4.0;

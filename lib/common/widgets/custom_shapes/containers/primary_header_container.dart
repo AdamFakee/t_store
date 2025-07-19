@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:t_store/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 import 'package:t_store/utils/constants/colors.dart';
+import 'package:t_store/utils/constants/sizes.dart';
 
 
 class TPrimaryHeaderContainer extends StatelessWidget {
   const TPrimaryHeaderContainer({
-    super.key, required this.child
+    super.key, required this.child, this.height = TSizes.headerContainerHome
   });
 
   // do không dùng fixed height cho sized box nên bắt buộc
   // phải có child để sized box không bị lỗi chiều cao vô cực ( k bị ràng buộc )
   final Widget child;
+  final double height;
+
   @override
   Widget build(BuildContext context) {
     return TCurvedEdgeWidget(
@@ -20,7 +23,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
         color: TColors.primary,
         // Không dùng fixed height để tăng tính mở rộng và tái sử dụng cho đoạn code
         child: SizedBox(
-          height: 400,
+          height: height,
           child: Stack(
             children: [
               Positioned(

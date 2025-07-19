@@ -20,6 +20,7 @@ class Settings extends StatelessWidget {
           children: [
             /// -- header
             TPrimaryHeaderContainer(
+              height: TSizes.headerContainerProfile,
               child: Column(
                 children: [
                   /// -- header title
