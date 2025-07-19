@@ -14,14 +14,14 @@ class TSectionTextHeading extends StatelessWidget {
     required this.title, 
     this.actionTitle,  
     this.onTap,
-    this.actionTitleColor = TColors.light,
-    this.titleColor = TColors.light
+    this.actionTitleColor,
+    this.titleColor
   });
 
   final String title;
   final String? actionTitle;
   final VoidCallback? onTap;
-  final Color titleColor, actionTitleColor;
+  final Color? titleColor, actionTitleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class TSectionTextHeading extends StatelessWidget {
         // title
         Text(
           title, 
-          style: Theme.of(context).textTheme.headlineMedium!.apply(color: titleColor)
+          style: titleColor != null ? Theme.of(context).textTheme.headlineMedium!.apply(color: titleColor) : Theme.of(context).textTheme.headlineMedium
         ),
         // button
         actionTitle != null ? 
@@ -39,7 +39,7 @@ class TSectionTextHeading extends StatelessWidget {
             onPressed: onTap, 
             child: Text(
               actionTitle!, 
-              style: Theme.of(context).textTheme.labelMedium!.apply(color: actionTitleColor,)
+              style: actionTitleColor != null ? Theme.of(context).textTheme.labelMedium!.apply(color: actionTitleColor,) : Theme.of(context).textTheme.labelMedium
             )
           ) : 
           const SizedBox.shrink() // trả về 1 box vô hình
