@@ -112,5 +112,33 @@ class TTexts {
   static const String loadDataTitle = "Load Data";
   static const String loadDataSubTitle = "Upload Data to your Cloud Firebase";
 
+  // Profile Screen
+  static const String profileTitle = "Profile";
+  static const String changeProfilePicture = "Change Profile Picture";
+
+  static const String profileInfoTitle = "Profile Information";
+  static const String personalInfoTitle = "Personal Information";
+
+  static const String nameTitle = "Name";
+
+  static const String usernameTitle = "Username";
+
+  // Personal Information
+  static const String userIdTitle = "User ID";
+  static const String userIdValue = "45689";
+
+  static const String emailTitle = "E-mail";
+
+  static const String phoneNumberTitle = "Phone Number";
+  static const String phoneNumberValue = "+92-317-8059528";
+
+  static const String genderTitle = "Gender";
+  static const String genderValue = "Male";
+
+  static const String dobTitle = "Date of Birth";
+  static const String dobValue = "10 Oct, 1994";
+
+  static const String closeAccount = "Close Account";
+
 
 }

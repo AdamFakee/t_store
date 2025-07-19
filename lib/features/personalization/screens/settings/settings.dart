@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/common/widgets/tiles/setting_menu_tile.dart';
 import 'package:t_store/common/widgets/tiles/user_profile_tile.dart';
+import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -36,7 +38,9 @@ class Settings extends StatelessWidget {
                     userName: TTexts.myName,
                     contact: TTexts.myEmailAddress,
                     imageUrl: TImage.categoryIcon,
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(Profile());
+                    },
                   ),
                 ],
               ),
