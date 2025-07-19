@@ -78,4 +78,7 @@ class TTexts {
   static const String clothesTabbar = "Clothes";
   static const String hatTabbar = "Hats";
 
+  /// -- Wishlist
+  static const String wishList = "Wishlist";
+
 }

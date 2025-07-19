@@ -67,4 +67,8 @@ class TSizes {
   // Grid view spacing
   static const double gridViewSpacing = 16.0;
 
+  // Card height
+  static const double productVerticalHeight = 288;
+  static const double productHorizontalHeight = 120;
+
 }
