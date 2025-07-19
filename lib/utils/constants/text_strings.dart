@@ -59,6 +59,7 @@ class TTexts {
   static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
 
   // contact me
+  static const String myName = "AdamFakee";
   static const String myEmailAddress = "buidinhtuan04@gmail.com";
 
   // Navigation menu
@@ -80,5 +81,36 @@ class TTexts {
 
   /// -- Wishlist
   static const String wishList = "Wishlist";
+
+  /// -- Setting
+  static const String account = "Account";
+
+  static const String accountSettings = "Account Settings";
+  static const String myAddressesTitle = "My Addresses";
+  static const String myAddressesSubTitle = "Set shopping delivery address";
+
+  static const String myCartTitle = "My Cart";
+  static const String myCartSubTitle = "Add, remove products and move to checkout";
+
+  static const String myOrdersTitle = "My Orders";
+  static const String myOrdersSubTitle = "In-progress and Completed Orders";
+
+  static const String bankAccountTitle = "Bank Account";
+  static const String bankAccountSubTitle = "Withdraw balance to registered bank account";
+
+  static const String myCouponsTitle = "My Coupons";
+  static const String myCouponsSubTitle = "List of all the discounted coupons";
+
+  static const String notificationsTitle = "Notifications";
+  static const String notificationsSubTitle = "Set any kind of notification message";
+
+  static const String accountPrivacyTitle = "Account Privacy";
+  static const String accountPrivacySubTitle = "Manage data usage and connected accounts";
+
+  static const String appSettings = "App Settings";
+
+  static const String loadDataTitle = "Load Data";
+  static const String loadDataSubTitle = "Upload Data to your Cloud Firebase";
+
 
 }

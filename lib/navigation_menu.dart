@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/features/personalization/screens/settings/settings.dart';
 import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/features/shop/screens/store/store.dart';
 import 'package:t_store/features/shop/screens/wishlist/wishlist.dart';
@@ -73,7 +74,7 @@ class NavigationControler extends GetxController {
       case 2:
         return const FavoriteScreen();
       case 3:
-        return Container(color: Colors.blue,);
+        return const Settings();
       
       // default = case 0
       default:
