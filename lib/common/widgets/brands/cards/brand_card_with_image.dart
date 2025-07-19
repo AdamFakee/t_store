@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:t_store/common/widgets/images/image_radius.dart';
 import 'package:t_store/common/widgets/brands/cards/brand_card.dart';
+import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class TBrandCardWithImage extends StatelessWidget {
   const TBrandCardWithImage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
         TRoundedContainer(
           padding: EdgeInsetsGeometry.all(TSizes.sm),
           showBorder: true,
+          backgroundColor: isDarkMode ? TColors.black : TColors.white,
           radius: TSizes.cardRadiusMd,
           child: Column(
             children: [

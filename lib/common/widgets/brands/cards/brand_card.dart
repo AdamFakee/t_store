@@ -5,6 +5,7 @@ import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
 
 /// a widget contain shot desc for brand ( name, numberOfProducts in brand )
 /// 
@@ -31,8 +32,11 @@ class TBrandCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = THelperFunctions.isDarkMode(context);
     return TCircularContainer(
+      showBorder: isDarkMode ? true : false,
       padding: EdgeInsetsGeometry.symmetric(horizontal: TSizes.sm),
+      backgroundColor: isDarkMode ? TColors.black : TColors.white,
       radius: TSizes.cardRadiusSm,
       child: Row(
         spacing: TSizes.sm,
