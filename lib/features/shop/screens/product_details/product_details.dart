@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 import 'package:t_store/common/widgets/product/product_detail/product_detail_heading_text.dart';
 import 'package:t_store/common/widgets/readmores/readmore_text.dart';
@@ -7,6 +8,7 @@ import 'package:t_store/features/shop/screens/product_details/widgets/product_de
 import 'package:t_store/features/shop/screens/product_details/widgets/product_detail_metadata.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_image_slider.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_rating_and_sharing.dart';
+import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -65,7 +67,7 @@ class ProductDetails extends StatelessWidget {
                   /// Reviews
                   GestureDetector(
                     onTap: () {
-
+                      Get.to(() => ProductReviews());
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

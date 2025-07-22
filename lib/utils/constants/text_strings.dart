@@ -5,7 +5,7 @@ class TTexts {
   static const String submit = "Submit";
   static const String done = 'Done';
   static const String loremText = """
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -177,4 +177,8 @@ class TTexts {
   /// --Readmore text
   static const String showMore = "Show more";
   static const String showLess = "Show less";
+
+  /// --Review & Ratings
+  static const String reviewAndRatingTitle = "Review & Rating";
+  static const String reviewAndRatingSubTitle = "Ratings and reviews are verified and are from people who use the same type of device that you use";
 }
