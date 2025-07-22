@@ -37,10 +37,10 @@ class TTextFormFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    labelStyle: TextStyle(fontSize: 14, color: Colors.white12),
-    hintStyle: TextStyle(fontSize: 14, color: Colors.white12),
+    labelStyle: TextStyle(fontSize: 14, color: Colors.white),
+    hintStyle: TextStyle(fontSize: 14, color: Colors.white),
     errorStyle: TextStyle(fontStyle: FontStyle.normal),
-    floatingLabelStyle: TextStyle(color: Colors.white12),
+    floatingLabelStyle: TextStyle(color: Colors.white),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
       borderSide: BorderSide(width: 1, color: Colors.grey),
@@ -51,7 +51,7 @@ class TTextFormFieldTheme {
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
-      borderSide: BorderSide(width: 1, color: Colors.white12),
+      borderSide: BorderSide(width: 1, color: Colors.white),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),

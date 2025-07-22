@@ -6,6 +6,7 @@ import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/common/widgets/tiles/setting_menu_tile.dart';
 import 'package:t_store/common/widgets/tiles/user_profile_tile.dart';
+import 'package:t_store/features/personalization/screens/addresses/addresses.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -54,7 +55,11 @@ class Settings extends StatelessWidget {
                   TSectionTextHeading(title: TTexts.accountSettings),
                   SizedBox(height: TSizes.spaceBtwItems,),
 
-                  TSettingMenuTile(title: TTexts.myAddressesTitle, subTitle: TTexts.myAddressesSubTitle, icon: Iconsax.safe_home),
+                  /// --Address
+                  TSettingMenuTile(title: TTexts.myAddressesTitle, subTitle: TTexts.myAddressesSubTitle, icon: Iconsax.safe_home, onTap: () {
+                    Get.to(() => Addresses());
+                  },),
+
                   TSettingMenuTile(title: TTexts.myCartTitle, subTitle: TTexts.myCartSubTitle, icon: Iconsax.shopping_cart),
                   TSettingMenuTile(title: TTexts.myOrdersTitle, subTitle: TTexts.myOrdersSubTitle, icon: Iconsax.bag_tick),
                   TSettingMenuTile(title: TTexts.bankAccountTitle, subTitle: TTexts.bankAccountSubTitle, icon: Iconsax.bank),

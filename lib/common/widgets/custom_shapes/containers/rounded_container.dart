@@ -11,7 +11,8 @@ class TRoundedContainer extends StatelessWidget {
     this.child,
     this.radius = 20,
     this.padding,
-    this.showBorder = false
+    this.showBorder = false,
+    this.onTap
   });
 
   final double? width;
@@ -21,21 +22,26 @@ class TRoundedContainer extends StatelessWidget {
   final double radius;
   final EdgeInsetsGeometry? padding;
   final bool showBorder;
+  final VoidCallback? onTap;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius),
-        color: backgroundColor,
-        border: showBorder ? Border.all(
-          width: 1,
-          color: TColors.darkGrey
-        ) : null,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: padding,
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: backgroundColor,
+          border: showBorder ? Border.all(
+            width: 1,
+            color: TColors.darkGrey
+          ) : null,
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }

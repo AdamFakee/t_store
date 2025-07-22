@@ -1,6 +1,7 @@
 // This class contains all the App Text in String formats.
 class TTexts {
   // -- GLOBAL Texts
+  static const String save = "Save";
   static const String continueText = 'Continue';
   static const String submit = "Submit";
   static const String done = 'Done';
@@ -181,4 +182,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   /// --Review & Ratings
   static const String reviewAndRatingTitle = "Review & Rating";
   static const String reviewAndRatingSubTitle = "Ratings and reviews are verified and are from people who use the same type of device that you use";
+
+
+  /// --Addresses
+  static const String address = "Addresses";
+  static const String homeAddress = "thon dong, xa nam cuong, huyen nam ha, tinh ha noi";
+
+  /// --Add new address
+  static const String addNewAddress = "Add new Address";
+  static const String name = "Name";
+  static const String phoneNumber = "Phone Number";
+  static const String street = "Street";
+  static const String postalCode = "Postal Code";
+  static const String city = "City";
+  static const String state = "State";
+  static const String country = "Country";
 }
