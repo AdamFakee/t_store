@@ -31,7 +31,7 @@ class TSectionTextHeading extends StatelessWidget {
         // title
         Text(
           title, 
-          style: titleColor != null ? Theme.of(context).textTheme.headlineMedium!.apply(color: titleColor) : Theme.of(context).textTheme.headlineMedium
+          style: titleColor != null ? Theme.of(context).textTheme.titleLarge!.apply(color: titleColor) : Theme.of(context).textTheme.titleLarge
         ),
         // button
         actionTitle != null ? 

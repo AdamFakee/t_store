@@ -4,15 +4,24 @@ class TTexts {
   static const String continueText = 'Continue';
   static const String submit = "Submit";
   static const String done = 'Done';
+  static const String loremText = """
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  """;
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Choose your product";
   static const String onBoardingTitle2 = "Select Payment Method";
   static const String onBoardingTitle3 = "Deliver at your door step";
 
-  static const String onBoardingSubTitle1 = "Welcome to a World of Limitless Choices – Your Perfect Product Awaits!";
-  static const String onBoardingSubTitle2 =  "For Seamless Transactions, Choose Your Payment Path – Your Convenience, Our Priority!";
-  static const String onBoardingSubTitle3 = "From Our Doorstep to Yours – Swift, Secure, and Contactless Delivery!";
+  static const String onBoardingSubTitle1 =
+      "Welcome to a World of Limitless Choices – Your Perfect Product Awaits!";
+  static const String onBoardingSubTitle2 =
+      "For Seamless Transactions, Choose Your Payment Path – Your Convenience, Our Priority!";
+  static const String onBoardingSubTitle3 =
+      "From Our Doorstep to Yours – Swift, Secure, and Contactless Delivery!";
 
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
@@ -22,7 +31,7 @@ class TTexts {
   static const String viewAll = "View all";
   static const String productPopularTitle = "Products popular";
 
-   // -- Authentication Form Text
+  // -- Authentication Form Text
   static const String firstName = "First Name";
   static const String lastName = "Last Name";
   static const String email = "E-Mail";
@@ -46,17 +55,24 @@ class TTexts {
 
   // -- Authentication Headings Text
   static const String loginTitle = "Welcome back,";
-  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
+  static const String loginSubTitle =
+      "Discover Limitless Choices and Unmatched Convenience.";
   static const String signupTitle = "Let's create your account";
   static const String forgetPasswordTitle = "Forget password";
-  static const String forgetPasswordSubTitle = "Don't worry sometimes people can forget too, enter your email and we will send you a password reset link.";
+  static const String forgetPasswordSubTitle =
+      "Don't worry sometimes people can forget too, enter your email and we will send you a password reset link.";
   static const String changeYourPasswordTitle = "Password Reset Email Sent";
-  static const String changeYourPasswordSubTitle = "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
+  static const String changeYourPasswordSubTitle =
+      "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
   static const String confirmEmail = "Verify your email address!";
-  static const String confirmEmailSubTitle = "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
-  static const String emailNotReceivedMessage = "Didn't get the email? Check your junk/spam or resend it.";
-  static const String yourAccountCreatedTitle = "Your account successfully created!";
-  static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
+  static const String confirmEmailSubTitle =
+      "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
+  static const String emailNotReceivedMessage =
+      "Didn't get the email? Check your junk/spam or resend it.";
+  static const String yourAccountCreatedTitle =
+      "Your account successfully created!";
+  static const String yourAccountCreatedSubTitle =
+      "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
 
   // contact me
   static const String myName = "AdamFakee";
@@ -90,22 +106,26 @@ class TTexts {
   static const String myAddressesSubTitle = "Set shopping delivery address";
 
   static const String myCartTitle = "My Cart";
-  static const String myCartSubTitle = "Add, remove products and move to checkout";
+  static const String myCartSubTitle =
+      "Add, remove products and move to checkout";
 
   static const String myOrdersTitle = "My Orders";
   static const String myOrdersSubTitle = "In-progress and Completed Orders";
 
   static const String bankAccountTitle = "Bank Account";
-  static const String bankAccountSubTitle = "Withdraw balance to registered bank account";
+  static const String bankAccountSubTitle =
+      "Withdraw balance to registered bank account";
 
   static const String myCouponsTitle = "My Coupons";
   static const String myCouponsSubTitle = "List of all the discounted coupons";
 
   static const String notificationsTitle = "Notifications";
-  static const String notificationsSubTitle = "Set any kind of notification message";
+  static const String notificationsSubTitle =
+      "Set any kind of notification message";
 
   static const String accountPrivacyTitle = "Account Privacy";
-  static const String accountPrivacySubTitle = "Manage data usage and connected accounts";
+  static const String accountPrivacySubTitle =
+      "Manage data usage and connected accounts";
 
   static const String appSettings = "App Settings";
 
@@ -140,5 +160,21 @@ class TTexts {
 
   static const String closeAccount = "Close Account";
 
+  /// --Product details
+  static const String nikeAirShoes = "Nike Air Jordon Shoes";
+  static const String inStock = "In Stock";
+  static const String ountOfStock = "Out Of Stock";
+  static const String stock = "Stock:";
+  static const String variation = "Variation:";
+  static const String price = "Price:";
+  static const String color = "Color";
+  static const String size = "Size";
+  static const String addToCart = "Add to Cart";
+  static const String checkOut = "Checkout";
+  static const String description = "Description";
+  static const String review = "Review";
 
+  /// --Readmore text
+  static const String showMore = "Show more";
+  static const String showLess = "Show less";
 }

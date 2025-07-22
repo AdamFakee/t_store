@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 class THelperFunctions {
   /// Lấy màu theo tên màu
-  static Color getColor(String value) {
+  static Color? getColor(String value) {
     // Define your product specific colors here
     if (value == 'Green') {
       return Colors.green;
@@ -24,7 +24,7 @@ class THelperFunctions {
     } else if (value == 'White') {
       return Colors.white;
     } else {
-      return Colors.transparent;
+      return null;
     }
   }
 

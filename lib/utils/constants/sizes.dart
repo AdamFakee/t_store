@@ -22,7 +22,7 @@ class TSizes {
   static const double fontSizeLg = 18.0;
 
   // Button sizes
-  static const double buttonHeight = 18.0;
+  static const double buttonHeight = 38.0;
   static const double buttonRadius = 12.0;
   static const double buttonWidth = 120.0;
   static const double buttonElevation = 4.0;
@@ -30,8 +30,12 @@ class TSizes {
   // AppBar height
   static const double appBarHeight = 56.0;
 
+  /// --Bottom navigation height
+  static const double bottomNavigationHeight = 76;
+
   // Image sizes
   static const double imageThumbSize = 80.0;
+  static const double imageSliderSize = 80;
 
   // Default spacing between sections
   static const double defaultSpace = 24.0;
