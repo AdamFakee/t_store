@@ -8,6 +8,7 @@ import 'package:t_store/common/widgets/tiles/setting_menu_tile.dart';
 import 'package:t_store/common/widgets/tiles/user_profile_tile.dart';
 import 'package:t_store/features/personalization/screens/addresses/addresses.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -59,8 +60,11 @@ class Settings extends StatelessWidget {
                   TSettingMenuTile(title: TTexts.myAddressesTitle, subTitle: TTexts.myAddressesSubTitle, icon: Iconsax.safe_home, onTap: () {
                     Get.to(() => Addresses());
                   },),
-
-                  TSettingMenuTile(title: TTexts.myCartTitle, subTitle: TTexts.myCartSubTitle, icon: Iconsax.shopping_cart),
+                  
+                  /// --Cart
+                  TSettingMenuTile(title: TTexts.myCartTitle, subTitle: TTexts.myCartSubTitle, icon: Iconsax.shopping_cart, onTap: () {
+                    Get.to(() => Cart());
+                  },),
                   TSettingMenuTile(title: TTexts.myOrdersTitle, subTitle: TTexts.myOrdersSubTitle, icon: Iconsax.bag_tick),
                   TSettingMenuTile(title: TTexts.bankAccountTitle, subTitle: TTexts.bankAccountSubTitle, icon: Iconsax.bank),
                   TSettingMenuTile(title: TTexts.myCouponsTitle, subTitle: TTexts.myCouponsSubTitle, icon: Iconsax.discount_shape),
