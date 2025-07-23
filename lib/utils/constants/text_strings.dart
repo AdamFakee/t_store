@@ -1,6 +1,8 @@
 // This class contains all the App Text in String formats.
 class TTexts {
   // -- GLOBAL Texts
+  static const String apply = "Apply";
+  static const String change = "Change";
   static const String save = "Save";
   static const String continueText = 'Continue';
   static const String submit = "Submit";
@@ -197,4 +199,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   static const String city = "City";
   static const String state = "State";
   static const String country = "Country";
+
+
+  /// --Checkout
+  static const String haveAPromoCode = "Have a promo code? Enter here";
+  static const String subtotal = "Subtotal";
+  static const String shippingFee = "Shipping Fee";
+  static const String taxFee = "Tax Fee";
+  static const String orderTotal = "Order Total";
+  static const String paymentMethod = "Payment Method";
+  static const String shippingAddress = "Shipping Address";
+  static const String orderReview = "Order Review";
 }

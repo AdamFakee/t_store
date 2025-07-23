@@ -12,7 +12,12 @@ import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
 class TCartItem extends StatelessWidget {
-  const TCartItem({super.key});
+  const TCartItem({super.key, this.showAddButton = true});
+
+  /// [showAddButton] control add & minus button that can be shown or not
+  /// 
+  /// add & minus buttons can adjust num of products in cart
+  final bool showAddButton;
 
   @override
   Widget build(BuildContext context) {
@@ -45,44 +50,45 @@ class TCartItem extends StatelessWidget {
 
               SizedBox(height: 5,),
               
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  /// --Adjust num of products
-                  Row(
-                    spacing: TSizes.sm,
-                    children: [
-                      /// --Minus button
-                      TCircularIcon(
-                        iconColor: TColors.white,
-                        icon: Iconsax.minus,
-                        backroundColor: TColors.darkGrey.withOpacity(0.4),
-                        height: 30,
-                        width: 30,
-                        onPressed: () {},
-                      ),
+              if(showAddButton)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    /// --Adjust num of products
+                    Row(
+                      spacing: TSizes.sm,
+                      children: [
+                        /// --Minus button
+                        TCircularIcon(
+                          iconColor: TColors.white,
+                          icon: Iconsax.minus,
+                          backroundColor: TColors.darkGrey.withOpacity(0.4),
+                          height: 30,
+                          width: 30,
+                          onPressed: () {},
+                        ),
 
-                      /// --NumOfProducts
-                      Text("2"),
+                        /// --NumOfProducts
+                        Text("2"),
 
-                      /// --Add button
-                      TCircularIcon(
-                        iconColor: TColors.white,
-                        icon: Iconsax.add,
-                        backroundColor: TColors.primary,
-                        height: 30,
-                        width: 30,
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
+                        /// --Add button
+                        TCircularIcon(
+                          iconColor: TColors.white,
+                          icon: Iconsax.add,
+                          backroundColor: TColors.primary,
+                          height: 30,
+                          width: 30,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
 
-                  /// --Product price
-                  TProductPriceText(price: "123", style: Theme.of(context).textTheme.titleLarge,),
+                    /// --Product price
+                    TProductPriceText(price: "123", style: Theme.of(context).textTheme.titleLarge,),
 
-                  
-                ],
-              ),
+                    
+                  ],
+                ),
             ],
           ),
         ),
