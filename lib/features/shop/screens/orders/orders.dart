@@ -19,10 +19,8 @@ class Orders extends StatelessWidget {
         showBackButton: true,
       ),
       body: SingleChildScrollView(
-        child: TRoundedContainer(
-          padding: EdgeInsets.all(TSizes.md),
-          child: TListOrderCards()
-        ),
+        padding: EdgeInsets.all(TSizes.md),
+        child: TListOrderCards()
       ),
     );
   }

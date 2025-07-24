@@ -20,6 +20,7 @@ class TListOrderCards extends StatelessWidget {
 
   Widget orderCard() {
     return TRoundedContainer(
+      showBorder: true,
       padding: EdgeInsets.symmetric(
         horizontal: TSizes.md
       ),
