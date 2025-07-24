@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:t_store/common/widgets/modal_bottom_sheets/draggable_bottom_sheet.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/personalization/screens/addresses/widgets/single_address.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -15,14 +18,19 @@ class TShippingAddressSection extends StatelessWidget {
           title: TTexts.shippingAddress,
           actionTitle: TTexts.change,
           actionTitleColor: TColors.primary,
-          onTap: () {},
+          onTap: () {
+            TDraggableBottomSheet.show(
+              context: context,
+              child: Column(children: [TSingleAddress(isSelected: true)]),
+            );
+          },
         ),
         Column(
           spacing: TSizes.spaceBtwItems / 2,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// --Reciver name
-            Text(TTexts.myName, style: Theme.of(context).textTheme.titleLarge,),
+            Text(TTexts.myName, style: Theme.of(context).textTheme.titleLarge),
 
             /// --Phone number
             Row(
@@ -35,10 +43,15 @@ class TShippingAddressSection extends StatelessWidget {
                 ),
               ],
             ),
+
             /// --Address
             Row(
               children: [
-                const Icon(Icons.location_history, color: Colors.grey, size: 16),
+                const Icon(
+                  Icons.location_history,
+                  color: Colors.grey,
+                  size: 16,
+                ),
                 const SizedBox(width: TSizes.spaceBtwItems),
                 Expanded(
                   child: Text(
