@@ -210,4 +210,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   static const String paymentMethod = "Payment Method";
   static const String shippingAddress = "Shipping Address";
   static const String orderReview = "Order Review";
+
+
+  /// My orders
+  static const String myOrders = "My Orders";
+  static const String order = "Order";
+  static const String processing = "Processing";
+  static const String shipmentOnTheWay = "Shipment on the way";
+  static const String delivered = "Delivered";
+  static const String shippingDate = "Shipping Date";
 }
