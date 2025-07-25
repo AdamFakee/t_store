@@ -70,7 +70,7 @@ class TProductCardHorizontal extends StatelessWidget {
 
             // product detail
             Expanded(
-              child: Padding(
+              child: Container(
                 padding: const EdgeInsets.only(left: TSizes.sm),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/image_text_widgets/vertical_image_text.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/shop/screens/sub_categories/sub_categories.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -31,7 +33,9 @@ class THomeCategory extends StatelessWidget {
                   title: 'day la category',
                   image: TImage.categoryIcon,
                   isNetworkImage: true,
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => SubCategories());
+                  },
                 );
               },
               separatorBuilder: (_, _) =>

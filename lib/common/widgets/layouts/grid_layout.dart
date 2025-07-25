@@ -9,6 +9,7 @@ class TGridLayout extends StatelessWidget {
     required this.crossAxisCount,
     required this.mainAxisExtent,
     required this.itemBuilder,
+    this.scrollDirection = Axis.vertical
   });
 
   final int itemCount;
@@ -16,12 +17,15 @@ class TGridLayout extends StatelessWidget {
   final int crossAxisCount;
   final double mainAxisExtent;
   final Widget Function(BuildContext, int) itemBuilder;
+  final Axis scrollDirection;
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       // disabled scroll của gridview và thay vào đó việc scroll sẽ là của "parent widget" ( nếu có scroll )
       physics: physics ?? NeverScrollableScrollPhysics(),
       itemCount: itemCount,
+      scrollDirection: scrollDirection,
       shrinkWrap:
           true, // GridView tự tính toán để có kích thước phù hợp thay vì mở rộng vô cực
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
