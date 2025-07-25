@@ -5,7 +5,6 @@ import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/images/image_radius.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/personalization/screens/profile/widgets/profile_menu.dart';
-import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';

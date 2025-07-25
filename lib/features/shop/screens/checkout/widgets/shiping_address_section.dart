@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:t_store/common/widgets/modal_bottom_sheets/draggable_bottom_sheet.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/personalization/screens/addresses/widgets/single_address.dart';

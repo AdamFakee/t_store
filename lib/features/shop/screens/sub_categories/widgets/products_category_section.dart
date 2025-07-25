@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/product/product_cards/product_card_horizontal.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/utils/constants/colors.dart';

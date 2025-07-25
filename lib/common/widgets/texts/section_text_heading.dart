@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/utils/constants/colors.dart';
 
 /// a widget for title & buttonTitle in a row
 /// Example: categories ----- viewAll
