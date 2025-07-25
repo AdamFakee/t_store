@@ -219,4 +219,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   static const String shipmentOnTheWay = "Shipment on the way";
   static const String delivered = "Delivered";
   static const String shippingDate = "Shipping Date";
+
+  /// --Brand
+  static const String brands = "Brands";
+  static const String brand = "Brand";
+  static const String products = "Products";
 }

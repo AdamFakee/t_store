@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/appbar/tabbar.dart';
 import 'package:t_store/common/widgets/brands/cards/brand_card.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/shop/screens/brands/all_brands.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -40,7 +42,9 @@ class TStoreHeader extends StatelessWidget {
               actionTitle: TTexts.viewAll,
               actionTitleColor: isDarkMode ? TColors.white : TColors.black,
               titleColor: isDarkMode ? TColors.white : TColors.black,
-              onTap: () {},
+              onTap: () {
+                Get.to(() => AllBrands());
+              },
             ),
 
             /// -- Brands GRID

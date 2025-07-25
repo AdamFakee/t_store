@@ -21,7 +21,10 @@ class TBrandCard extends StatelessWidget {
     this.isNetworkImage = true,
     required this.titleBrand,
     this.suffix = " products",
-    required this.numberOfProducts
+    required this.numberOfProducts,
+    this.showBorder = false,
+    this.onTap,
+    this.padding = const EdgeInsetsGeometry.symmetric(horizontal: TSizes.sm)
   });
 
   final String imageUrl;
@@ -29,45 +32,51 @@ class TBrandCard extends StatelessWidget {
   final String titleBrand;
   final String suffix;
   final int numberOfProducts;
+  final bool showBorder;
+  final VoidCallback? onTap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     final bool isDarkMode = THelperFunctions.isDarkMode(context);
-    return TCircularContainer(
-      showBorder: isDarkMode ? true : false,
-      padding: EdgeInsetsGeometry.symmetric(horizontal: TSizes.sm),
-      backgroundColor: isDarkMode ? TColors.black : TColors.white,
-      radius: TSizes.cardRadiusSm,
-      child: Row(
-        spacing: TSizes.sm,
-        children: [
-          // icon
-          Flexible(
-            child: TRoundedImage(
-              radius: TSizes.sm,
-              imageUrl: TImage.brandNike,
-              isNeworkImage: true,
+    return GestureDetector(
+      onTap: onTap,
+      child: TCircularContainer(
+        showBorder: showBorder,
+        padding: padding,
+        backgroundColor: isDarkMode ? TColors.black : TColors.white,
+        radius: TSizes.cardRadiusSm,
+        child: Row(
+          spacing: TSizes.sm,
+          children: [
+            // icon
+            Flexible(
+              child: TRoundedImage(
+                radius: TSizes.sm,
+                imageUrl: TImage.brandNike,
+                isNeworkImage: true,
+              ),
             ),
-          ),
-          // title
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TBrandIconText(title: titleBrand),
-                Text(
-                  numberOfProducts.toString() + suffix,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.labelSmall!.apply(color: TColors.darkGrey),
-                ),
-              ],
+            // title
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TBrandIconText(title: titleBrand),
+                  Text(
+                    numberOfProducts.toString() + suffix,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(
+                      context,
+                    ).textTheme.labelSmall!.apply(color: TColors.darkGrey),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
