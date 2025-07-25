@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/shop/screens/all_products/all_products.dart';
 import 'package:t_store/features/shop/screens/home/widgets/banner_slide.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_category.dart';
@@ -60,6 +62,9 @@ class HomeScreen extends StatelessWidget {
                     titleColor: isDarkMode ? TColors.light : TColors.black,
                     actionTitle: TTexts.viewAll,
                     actionTitleColor: isDarkMode ? TColors.light : TColors.black,
+                    onTap: () {
+                      Get.to(() => AllProducts());
+                    },
                   ),
                   TGridLayout(
                     itemCount: 10,
