@@ -1,7 +1,9 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:t_store/features/authentication/screens/login/login_screen.dart';
+import 'package:t_store/utils/constants/get_storage_key.dart';
 
 class OnBoardingController extends GetxController{
   // Tạo singleTon instance
@@ -33,6 +35,11 @@ class OnBoardingController extends GetxController{
   void nextPage() {
     int index = currentPageIndex.value;
     if( index >= 2){
+      final storage = GetStorage();
+
+      /// -- Mark this as not the firstime using "T-Store"
+      storage.write(TGetStorageKey.isFisrtTime, false);
+
       Get.offAll(const LoginScreen());
     } else {
       currentPageIndex.value++;
