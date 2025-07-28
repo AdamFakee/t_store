@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/common/widgets/success_screen.dart';
+import 'package:t_store/features/authentication/controllers/sign_up/verify_email_controller.dart';
 import 'package:t_store/features/authentication/screens/login/login_screen.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
@@ -13,7 +13,9 @@ class VerifyEmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     final isDarkMode = THelperFunctions.isDarkMode(context);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -67,12 +69,7 @@ class VerifyEmailScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(TSuccessScreen(
-                    title: TTexts.yourAccountCreatedTitle,
-                    subTitle: TTexts.yourAccountCreatedSubTitle,
-                    onPressed: () {},
-                    image: TImage.createAccountSuccess,
-                  ));
+                  controller.checkEmailVerification();
                 },
                 child: Text(TTexts.continueText),
               ),
@@ -82,7 +79,9 @@ class VerifyEmailScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.sendEmailVerification();
+                },
                 child: Text(
                   TTexts.resendEmail,
                   style: Theme.of(context).textTheme.bodyLarge,

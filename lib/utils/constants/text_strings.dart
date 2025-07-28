@@ -244,6 +244,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   static const String agreePrivacyPolicyTitle = "Accept Privacy Policy";
   static const String agreePrivacyPolicyMessage = "In order to create account, you must have to read and accept the Privacy Policy & Terms of Use.";
 
+  // Send email verification
+  static const String emailSentTitle = "Email Sent";
+  static const String emailSentMessage = "Pls check your inbox and verify your email.";
+
 
 
   /*--------------- ERROR MESSAGE ---------------------------*/

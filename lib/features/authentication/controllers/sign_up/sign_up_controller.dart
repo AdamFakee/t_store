@@ -79,15 +79,20 @@ class SignUpController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
 
+      // stop loading
+      TFullScreenLoader.stopLoadingDialog();
+
       // show success message
       TSnackBar.successSnackBar(title: "Congratulations", message: "Your account has been created! Verify email to continue");
 
       // Move to verify email screen
       Get.to(() => const VerifyEmailScreen());
     } catch (e) {
-      TSnackBar.errorSnackBar(title: "Have an error", message: e.toString());
-    } finally {
+      // stop loading
       TFullScreenLoader.stopLoadingDialog();
+
+      // show err
+      TSnackBar.errorSnackBar(title: "Have an error", message: e.toString());
     }
   }
 }

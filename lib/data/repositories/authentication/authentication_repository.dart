@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:t_store/features/authentication/screens/login/login_screen.dart';
 import 'package:t_store/features/authentication/screens/onboarding_screen/onboarding.dart';
+import 'package:t_store/features/authentication/screens/register_screen/verify_email.dart';
+import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/get_storage_key.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/exceptions/firebase_auth_exceptions.dart';
@@ -30,19 +32,31 @@ class AuthenticationRepository extends GetxController {
     super.onReady();
   }
 
+  /// Function to show relevant screen
   void screenRedirect() async {
-    /// Hàm chỉ lưu giá trị nếu [key] chưa tồn tại
-    ///
-    /// Nghĩa là chỉ lưu giá trị cho những người dùng lần đầu vào app
-    deviceStorage.writeIfNull(TGetStorageKey.isFisrtTime, true);
+    final user = _auth.currentUser;
+    if (user != null) {
+      // check user verified email exist
+      if (user.emailVerified) {
+        return Get.offAll(() => NavigationMenu());
+      } else {
+        return Get.offAll(() => VerifyEmailScreen());
+      }
+    } else {
+      /// Hàm chỉ lưu giá trị nếu [key] chưa tồn tại
+      ///
+      /// Nghĩa là chỉ lưu giá trị cho những người dùng lần đầu vào app
+      deviceStorage.writeIfNull(TGetStorageKey.isFisrtTime, true);
 
-    /// Đã vào app ít nhất 1 lần => không hiển thị [OnBoardingScreen] nữa
-    deviceStorage.read(TGetStorageKey.isFisrtTime) != true
-        ? Get.offAll(() => LoginScreen())
-        : Get.offAll(() => OnBoardingScreen());
+      /// Đã vào app ít nhất 1 lần => không hiển thị [OnBoardingScreen] nữa
+      deviceStorage.read(TGetStorageKey.isFisrtTime) != true
+          ? Get.offAll(() => LoginScreen())
+          : Get.offAll(() => OnBoardingScreen());
+    }
   }
 
   /* ----------------- Email & password sign-in ------------------------- */
+
   /// [EmailAuthentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
     String email,
@@ -53,6 +67,42 @@ class AuthenticationRepository extends GetxController {
         email: email,
         password: password,
       );
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthExceptions(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
+  /// [EmailAuthentication] - Mail verification
+  Future<void> sendEmailVerification () async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthExceptions(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
+  /* ----------------- End Email & password sign-in ------------------------- */
+
+  /// [logoutUser] - Valid for any authentication
+  Future<void> logout() async {
+    try {
+      await _auth.signOut();
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthExceptions(e.code).message;
     } on FirebaseException catch (e) {
