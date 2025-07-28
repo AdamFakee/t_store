@@ -1,5 +1,9 @@
 // This class contains all the App Text in String formats.
 class TTexts {
+
+  /*--------------- App text: title, subtitle, section name.... ----------------------*/
+
+
   // -- GLOBAL Texts
   static const String apply = "Apply";
   static const String change = "Change";
@@ -224,4 +228,40 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   static const String brands = "Brands";
   static const String brand = "Brand";
   static const String products = "Products";
+
+
+  ///***
+  ///
+  /// SNACK BAR
+  ///
+  /// */
+  
+  /// Internet connection
+  static const String noInternetTitle = "No internet connection";
+  static const String noInternetMessage = "Please check your wifi or mobile connection";
+
+  /// Privacy and policy
+  static const String agreePrivacyPolicyTitle = "Accept Privacy Policy";
+  static const String agreePrivacyPolicyMessage = "In order to create account, you must have to read and accept the Privacy Policy & Terms of Use.";
+
+
+
+  /*--------------- ERROR MESSAGE ---------------------------*/
+  static const String somethingWentWrong = "Something went wrong. Please try again";
+
+  // firebase auth error
+  static const String weakPasswordMessage = "The password provided is too weak.";
+  static const String emailAlreadyInUserMessage = "The account already exists for that email.";
+  static const String signupFailsMessage = "Sign-up fails. Pls try again.";
+
+  // fire base error
+  static const String permissionDeniedMessage = "You do not have permission to perform this action.";
+  static const String unavailableMessage = "The server is currently unavailable. Please try again later.";
+  static const String invalidEmailMessage = "The email address is malformed.";
+  static const String firebaseGeneralErrorMessage = "A Firebase error occurred. Please try again.";
+
+  // platform or device error
+  static const String networkErrorMessage = "Network error. Please check your internet connection.";
+  static const String deviceNotSupportMessage = "This feature is not supported on your device.";
+  static const String platformGeneralErrorMessage = "A platform error occurred. Please try again.";
 }
