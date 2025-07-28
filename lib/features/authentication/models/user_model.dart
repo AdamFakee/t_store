@@ -38,17 +38,18 @@ class UserModel {
     return usernameWithPrefix;
   }
 
-  // Static function to create an empty user model.
+  /// Static function to create an empty user model.
   static UserModel empty() => UserModel(
-      id: "",
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      phoneNumber: "",
-      profilePicture: "");
+    id: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    phoneNumber: "",
+    profilePicture: "",
+  );
 
-  // Convert model to JSON structure for storing data in Firebase.
+  /// Convert model to JSON structure for storing data in Firebase.
   Map<String, dynamic> toJson() {
     return {
       'FirstName': firstName,
@@ -60,9 +61,23 @@ class UserModel {
     };
   }
 
-  // Factory method to create a UserModel from a Firebase document snapshot.
+  /// Convert JSON structure to UserModel
+  UserModel fromJson() {
+    return UserModel(
+      id: id,
+      username: username,
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
+      phoneNumber: phoneNumber,
+      profilePicture: profilePicture,
+    );
+  }
+
+  /// Factory method to create a UserModel from a Firebase document snapshot.
   factory UserModel.fromSnapshot(
-      DocumentSnapshot<Map<String, dynamic>> document) {
+    DocumentSnapshot<Map<String, dynamic>> document,
+  ) {
     final data = document.data()!;
     return UserModel(
       id: document.id,

@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:t_store/data/repositories/user/user_repository.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
 
 class GeneralBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(NetworkManager());
+    Get.lazyPut(() => UserRepository()); // chỉ khởi tạo khi get.find() được gọi
   }
 
 }

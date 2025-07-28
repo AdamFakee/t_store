@@ -6,6 +6,7 @@ import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/common/widgets/tiles/setting_menu_tile.dart';
 import 'package:t_store/common/widgets/tiles/user_profile_tile.dart';
+import 'package:t_store/features/personalization/controllers/setting_controller.dart';
 import 'package:t_store/features/personalization/screens/addresses/addresses.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
@@ -13,13 +14,20 @@ import 'package:t_store/features/shop/screens/orders/orders.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
+import 'package:t_store/utils/popups/full_screen_loader.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final controller = Get.put(SettingController());
+    return Obx(() {
+      if(controller.loading.value) {
+        TFullScreenLoader.openLoadingDialog();
+        return const SizedBox();
+      }
+      return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -38,8 +46,8 @@ class Settings extends StatelessWidget {
 
                   /// -- user information
                   TUserProfileTile(
-                    userName: TTexts.myName,
-                    contact: TTexts.myEmailAddress,
+                    userName: controller.currentUser.username,
+                    contact: controller.currentUser.email,
                     imageUrl: TImage.categoryIcon,
                     onTap: () {
                       Get.to(Profile());
@@ -89,5 +97,6 @@ class Settings extends StatelessWidget {
         ),
       ),
     );
+    });
   }
 }
