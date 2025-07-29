@@ -24,6 +24,8 @@ class AuthenticationRepository extends GetxController {
   /// Không dùng onInit vì onInit chỉ dùng để khởi tạo controller, các thông tin trong onInit được đặt trong [widget/controller]
   ///
   /// Sử dụng onReady bởi vì sau khi onInit khởi tạo xong các widget (nghĩa là widget được render xong) => [screenRedirect] mới có thể điều hướng tới màn hình cụ thể
+  /// 
+  /// Được khởi tạo ở file : main.dart
   @override
   void onReady() {
     FlutterNativeSplash.remove();
@@ -55,7 +57,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /* ----------------- Email & password sign-in ------------------------- */
+  /* ----------------- Email & password ------------------------- */
 
   /// [EmailAuthentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
@@ -97,7 +99,23 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /* ----------------- End Email & password sign-in ------------------------- */
+  /// [EmailAuthentication] - Login
+  Future<void> signInWithEmailAndPassword(String email, String password) async {
+    try {
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthExceptions(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+  /* ----------------- End Email & password ------------------------- */
 
   /// [logoutUser] - Valid for any authentication
   Future<void> logout() async {

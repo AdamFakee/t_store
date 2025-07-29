@@ -6,7 +6,7 @@ class GeneralBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(NetworkManager());
-    Get.lazyPut(() => UserRepository()); // chỉ khởi tạo khi get.find() được gọi
+    Get.put(UserRepository());
   }
 
 }

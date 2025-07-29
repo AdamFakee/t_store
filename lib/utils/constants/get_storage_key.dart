@@ -1,4 +1,6 @@
 class TGetStorageKey {
   /// authentication
   static const String isFisrtTime = 'isFisrtTime';
+  static const String rememberMeEmail = "REMEMBER_ME_EMAIL";
+  static const String rememberMePassword = "REMEMBER_ME_PASSWORD";
 }
