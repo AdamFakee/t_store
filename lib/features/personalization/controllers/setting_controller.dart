@@ -8,21 +8,23 @@ class SettingController extends GetxController{
 
   @override
   void onInit() {
-    super.onInit();
     _loadCurrentUser();
+    super.onInit();
   }
   // Variables
   RxBool loading = false.obs;
-  late final UserModel _currentUser;
-  final UserRepository userRepo = UserRepository.instance;
+  Rxn<UserModel> currentUser = Rxn<UserModel>();
+  final UserRepository _userRepo = UserRepository.instance;
 
-  UserModel get currentUser => _currentUser;
 
   /// Function assign value for _currentUser
   void _loadCurrentUser() async {
     try {
       // start loading
       loading.value = true;
+
+      // get user infor
+      currentUser.value = await _userRepo.getUserInfor();
     } catch (e) {
       TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
     } finally {
