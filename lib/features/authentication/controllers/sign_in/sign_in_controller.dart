@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:t_store/data/repositories/user/user_repository.dart';
+import 'package:t_store/features/personalization/controllers/user_controller.dart';
+import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/get_storage_key.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
@@ -25,7 +28,7 @@ class SignInController extends GetxController {
   RxBool rememberMe = true.obs; 
 
   final _authRepo = AuthenticationRepository.instance;
- 
+  final _userController = Get.put(UserController());
  
   // controller variables
   final localStorage = GetStorage();
@@ -78,6 +81,48 @@ class SignInController extends GetxController {
       TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
     } finally {
       loading.value = false;
+    }
+  }
+
+  /// Function signin with google
+  void signInWithGoogle () async {
+    print('Current route 11: ${Get.currentRoute}');
+    print('Previous route 11: ${Get.previousRoute}');
+    try {
+      // show loading
+      TFullScreenLoader.openLoadingDialog();
+
+      // User signIn to the firebase authentication
+      final userCredential = await _authRepo.signInWithGoogle();
+
+      if (userCredential == null) {
+        TFullScreenLoader.stopLoadingDialog();
+        return;
+      }
+
+      // save user record to firebase
+      _userController.saveUserRecord(userCredential);
+
+      // stop loading
+      //
+      // không đặt [stopLoadingDialog] ở finally bởi vì khi gọi đến [_authRepo.screenRedirect] => clear hết các route có trong navigation stack (get.offAll) 
+      // nhưng vẫn đang tham chiếu tới dialog => stop dialog lỗi (xoá lỗi)
+      TFullScreenLoader.stopLoadingDialog();
+      
+      // Show success message
+      TSnackBar.successSnackBar(
+        title: "Welcome!", 
+        message: "You have successfully signed in with Google"
+      );
+
+      // redirect
+      _authRepo.screenRedirect();
+    } catch (e) {
+      // stop loading
+      TFullScreenLoader.stopLoadingDialog();
+
+      // show alter
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
     }
   }
 }

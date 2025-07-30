@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:t_store/features/authentication/screens/login/login_screen.dart';
 import 'package:t_store/features/authentication/screens/onboarding_screen/onboarding.dart';
 import 'package:t_store/features/authentication/screens/register_screen/verify_email.dart';
@@ -116,6 +117,40 @@ class AuthenticationRepository extends GetxController {
     }
   }
   /* ----------------- End Email & password ------------------------- */
+
+  /* ------------------ Socials ------------------------------------- */
+
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      await GoogleSignIn().signOut();
+      // show popup to choose email account
+      // [userAccount] contain infor of email account (email, avatar, id, name)
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+      
+      // check [userAccount] = null
+      if(userAccount == null) return null;
+
+      // take accessToken, idToken for account auth
+      final GoogleSignInAuthentication googleAuth = await userAccount.authentication;
+      
+
+      final credential = GoogleAuthProvider.credential(accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
+      // signIn with firebase & return userCredential
+      return await _auth.signInWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthExceptions(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+  /* ------------------ End Socials --------------------------------- */
 
   /// [logoutUser] - Valid for any authentication
   Future<void> logout() async {
