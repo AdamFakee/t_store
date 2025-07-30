@@ -16,8 +16,8 @@ class SignInController extends GetxController {
   void onInit() {
     super.onInit();
     // assign email & password by value in localstorage (save in remember me)
-    email.text = localStorage.read(TGetStorageKey.rememberMeEmail);
-    password.text = localStorage.read(TGetStorageKey.rememberMePassword);
+    email.text = localStorage.read(TGetStorageKey.rememberMeEmail) ?? "";
+    password.text = localStorage.read(TGetStorageKey.rememberMePassword) ?? "";
   }
 
   // variables
