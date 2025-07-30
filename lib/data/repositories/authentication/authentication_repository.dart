@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -21,6 +22,7 @@ class AuthenticationRepository extends GetxController {
   /// Variables
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+  final _facebookAuth = FacebookAuth.instance;
 
   /// Không dùng onInit vì onInit chỉ dùng để khởi tạo controller, các thông tin trong onInit được đặt trong [widget/controller]
   ///
@@ -39,8 +41,14 @@ class AuthenticationRepository extends GetxController {
   void screenRedirect() async {
     final user = _auth.currentUser;
     if (user != null) {
-      // check user verified email exist
-      if (user.emailVerified) {
+      // email is verified by other platform 
+      bool isOAuthUser = user.providerData.any((provider) => 
+        provider.providerId == 'google.com' || 
+        provider.providerId == 'facebook.com'
+      );
+
+      // check user verified email exist or skip verified when sign-in by other platform
+      if (user.emailVerified || isOAuthUser) {
         return Get.offAll(() => NavigationMenu());
       } else {
         return Get.offAll(() => VerifyEmailScreen());
@@ -120,8 +128,10 @@ class AuthenticationRepository extends GetxController {
 
   /* ------------------ Socials ------------------------------------- */
 
+  /// [GoogleAuthentication] - Login
   Future<UserCredential?> signInWithGoogle() async {
     try {
+      // not using cache email in pre-google-login
       await GoogleSignIn().signOut();
       // show popup to choose email account
       // [userAccount] contain infor of email account (email, avatar, id, name)
@@ -147,6 +157,27 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
+  /// [FacebookAuthentication] - Login
+  Future<UserCredential?> signInWithFacebook() async {
+    try {
+      final LoginResult result = await _facebookAuth.login();
+      switch (result.status) {
+        case LoginStatus.success: 
+          // Create a credential from the access token
+          final OAuthCredential credential = FacebookAuthProvider.credential(result.accessToken!.tokenString);
+
+          // Once signed in, return the UserCredential
+          return await _auth.signInWithCredential(credential);
+        case LoginStatus.failed:
+          throw("Login with facebook have something wrong. Pls retry or login by other methods");
+        default:
+          return null;
+      }
+    } catch (_) {
       throw TTexts.somethingWentWrong;
     }
   }

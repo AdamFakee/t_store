@@ -34,7 +34,9 @@ class TSocialButtons extends StatelessWidget {
             border: Border.all(color: Colors.grey), borderRadius: BorderRadius.circular(100)
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              controller.signInWithFacebook();
+            },
             icon: Image.asset(TImage.facebook, width: TSizes.iconMd, height: TSizes.iconMd,),
           ),
         ),

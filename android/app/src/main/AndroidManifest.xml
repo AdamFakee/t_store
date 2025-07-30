@@ -1,8 +1,17 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.t_store">
+    <!-- Facebook config -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- End Facebook config -->
     <application
         android:label="t_store"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        
+        <!-- Facebook config -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <!-- End Facebook config -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -37,6 +46,10 @@
 
          In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
+        <!-- facebook config -->
+        <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
+        <!-- End facebook config -->
+
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
