@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/styles/spacing_styles.dart';
-import 'package:t_store/features/authentication/screens/password_configuration/reset_password.dart';
+import 'package:t_store/features/authentication/controllers/password_configuration/forget_password_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
+import 'package:t_store/utils/validators/validation.dart';
 
 class TForgetPassword extends StatelessWidget {
   const TForgetPassword({super.key});
@@ -14,6 +15,8 @@ class TForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = THelperFunctions.isDarkMode(context);
+    final ForgetPasswordController controller = Get.put(ForgetPasswordController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -50,13 +53,18 @@ class TForgetPassword extends StatelessWidget {
             SizedBox(height: TSizes.spaceBtwSections * 2),
 
             // email form field
-            TextFormField(
-              decoration: InputDecoration(
-                label: Text(
-                  TTexts.email,
-                  style: Theme.of(context).textTheme.titleLarge,
+            Form(
+              key: controller.forgetPasswordFormKey,
+              child: TextFormField(
+                controller: controller.email,
+                validator: (value) => TValidator.validateEmail(value),
+                decoration: InputDecoration(
+                  label: Text(
+                    TTexts.email,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  prefixIcon: Icon(Iconsax.send1),
                 ),
-                prefixIcon: Icon(Iconsax.send1),
               ),
             ),
 
@@ -67,7 +75,7 @@ class TForgetPassword extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.off(() => const TResetPassword());
+                  controller.resetPassword();
                 },
                 child: Text(TTexts.submit),
               ),
