@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/product/cart/cart_menu_icon.dart';
+import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:t_store/features/shop/screens/store/widgets/store_header.dart';
 import 'package:t_store/utils/constants/colors.dart';
@@ -36,9 +37,10 @@ class _StoreState extends State<Store> with TickerProviderStateMixin  {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instace.featuredCategories;
     final bool isDarkMode = THelperFunctions.isDarkMode(context);
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: TAppBar(
           title: Text(
@@ -81,13 +83,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin  {
             body: Padding(
               padding: const EdgeInsets.all(TSizes.md),
               child: TabBarView(
-                children: [
-                  TCategoryTab(),
-                  TCategoryTab(),
-                  TCategoryTab(),
-                  TCategoryTab(),
-                  TCategoryTab(),
-                ],
+                children: categories.map((category) => TCategoryTab()).toList(),
               ),
             ),
           ),

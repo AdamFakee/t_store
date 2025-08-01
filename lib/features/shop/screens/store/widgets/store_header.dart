@@ -5,6 +5,7 @@ import 'package:t_store/common/widgets/brands/cards/brand_card.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/brands/all_brands.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
@@ -18,6 +19,7 @@ class TStoreHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instace;
     final bool isDarkMode = THelperFunctions.isDarkMode(context);
     return SliverAppBar(
       floating: true, // hiển thị tabbar nổi lên
@@ -62,13 +64,7 @@ class TStoreHeader extends StatelessWidget {
         ),
       ),
       bottom: TTabBar(
-        tabs: [
-          Tab(child: Text(TTexts.sportTabbar)),
-          Tab(child: Text(TTexts.furnitureTabbar)),
-          Tab(child: Text(TTexts.electronicTabbar)),
-          Tab(child: Text(TTexts.clothesTabbar)),
-          Tab(child: Text(TTexts.hatTabbar)),
-        ],
+        tabs: controller.featuredCategories.map((category) => Tab(child: Text(category.name),)).toList(),
       ),
     );
   }

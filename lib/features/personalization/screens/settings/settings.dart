@@ -10,6 +10,7 @@ import 'package:t_store/common/widgets/tiles/user_profile_tile.dart';
 import 'package:t_store/features/personalization/controllers/setting_controller.dart';
 import 'package:t_store/features/personalization/screens/addresses/addresses.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/personalization/screens/settings/upload_data.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/orders/orders.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
@@ -122,10 +123,12 @@ class Settings extends StatelessWidget {
                     TSectionTextHeading(title: TTexts.appSettings),
                     SizedBox(height: TSizes.spaceBtwItems),
 
+                    // Upload dummy data to cloud
                     TSettingMenuTile(
                       title: TTexts.loadDataTitle,
                       subTitle: TTexts.loadDataSubTitle,
                       icon: Iconsax.document_upload,
+                      onTap: () => Get.to(() => UploadDataScreen()),
                     ),
                   ],
                 ),
