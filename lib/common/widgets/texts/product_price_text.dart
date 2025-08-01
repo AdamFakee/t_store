@@ -18,7 +18,7 @@ class TProductPriceText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       curencySign + price,
-      style: style ?? Theme.of(context).textTheme.headlineMedium,
+      style: style ?? Theme.of(context).textTheme.titleMedium,
       maxLines: maxLines,
     );
   }

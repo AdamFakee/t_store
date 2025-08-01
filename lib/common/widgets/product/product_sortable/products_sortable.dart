@@ -24,12 +24,12 @@ class TProductsSortable extends StatelessWidget {
         ),
     
         /// --Products GRID
-        TGridLayout(
-          itemCount: 5,
-          crossAxisCount: 2,
-          mainAxisExtent: TSizes.productVerticalHeight,
-          itemBuilder: (_, index) => TProductCardVertical(),
-        ),
+        // TGridLayout(
+        //   itemCount: 5,
+        //   crossAxisCount: 2,
+        //   mainAxisExtent: TSizes.productVerticalHeight,
+        //   itemBuilder: (_, index) => TProductCardVertical(),
+        // ),
       ],
     );
   }

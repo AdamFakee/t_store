@@ -1,4 +1,5 @@
 // List of enums
+enum ProductType {single, variation}
 
 enum TextSizes { small, medium, large }
 

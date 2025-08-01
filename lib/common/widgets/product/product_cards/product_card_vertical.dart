@@ -10,21 +10,27 @@ import 'package:t_store/common/widgets/product/product_sale_tag.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
+import 'package:t_store/features/shop/controllers/product_controller.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/product_details/product_details.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class TProductCardVertical extends StatelessWidget {
-  const TProductCardVertical({super.key});
+  const TProductCardVertical({super.key, required this.product});
 
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
+    final productController = ProductController.instace;
+    final price = productController.getProductPrices(product);
+    final salePercentage = productController.getDiscoutPercent(product.price, product.salePrice);
     final isDarkMode = THelperFunctions.isDarkMode(context);
+    
     return GestureDetector(
       onTap: () {
-        Get.to(() => ProductDetails());
+        Get.to(() => ProductDetails(product: product,));
       },
       child: Container(
         width: 180,
@@ -49,7 +55,7 @@ class TProductCardVertical extends StatelessWidget {
                   TRoundedImage(
                     width: double.infinity,
                     height: double.infinity,
-                    imageUrl: TImage.shoeSnaker,
+                    imageUrl: product.thumbnail,
                     isNeworkImage: true,
                     fit: BoxFit.cover,
                   ),
@@ -57,7 +63,7 @@ class TProductCardVertical extends StatelessWidget {
                   Positioned(
                     top: 15,
                     left: 5,
-                    child: TProductSaleTag(title: "20"),
+                    child: TProductSaleTag(title: "$salePercentage"),
                   ),
                   // heart button
                   Positioned(
@@ -79,9 +85,10 @@ class TProductCardVertical extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // product title
-                  TProductTitleText(title: "Nike Track suit Black"),
+                  TProductTitleText(title: product.title),
                   // brand
-                  TBrandIconText(title: "Nike"),
+                  if(product.brand?.name != null) 
+                     TBrandIconText(title: product.brand!.name),
                 ],
               ),
             ),
@@ -93,7 +100,13 @@ class TProductCardVertical extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TProductPriceText(price: '200'),
+                  Column(
+                    children: [
+                      if(salePercentage != null) 
+                        Text(product.price.toString(), style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough, color: Colors.grey)),
+                      TProductPriceText(price: price, curencySign: "",),
+                    ],
+                  ),
                   TProductAddButton(),
                 ],
               ),

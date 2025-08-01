@@ -33,15 +33,15 @@ class FavoriteScreen extends StatelessWidget {
           ),
 
           /// products GRID
-          Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: TSizes.sm),
-            child: TGridLayout(
-              itemCount: 14,
-              crossAxisCount: 2,
-              mainAxisExtent: TSizes.productVerticalHeight,
-              itemBuilder: (_, index) => TProductCardVertical(),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsetsGeometry.symmetric(horizontal: TSizes.sm),
+          //   child: TGridLayout(
+          //     itemCount: 14,
+          //     crossAxisCount: 2,
+          //     mainAxisExtent: TSizes.productVerticalHeight,
+          //     itemBuilder: (_, index) => TProductCardVertical(),
+          //   ),
+          // ),
         ],
       ),
     );
