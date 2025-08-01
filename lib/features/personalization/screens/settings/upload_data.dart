@@ -40,6 +40,11 @@ class UploadDataScreen extends StatelessWidget {
                       icon: Iconsax.document_upload,
                       onTap: () => controller.uploadCategories(),
                     ),
+                    TSettingMenuTile(
+                      title: "Upload banners",
+                      icon: Iconsax.document_upload,
+                      onTap: () => controller.uploadBanners(),
+                    ),
                   ],
                 ),
               ),
