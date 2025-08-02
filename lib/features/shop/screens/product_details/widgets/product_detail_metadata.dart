@@ -5,15 +5,23 @@ import 'package:t_store/common/widgets/product/product_sale_tag.dart';
 import 'package:t_store/common/widgets/readmores/readmore_text.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
+import 'package:t_store/features/shop/controllers/products/product_controller.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
 class TProductDetailMetaData extends StatelessWidget {
-  const TProductDetailMetaData({super.key});
+  const TProductDetailMetaData({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instace;
+    final salePercentage = controller.getDiscoutPercent(product.price, product.salePrice);
+    final price = controller.getProductPrices(product);
+
     return Column(
       spacing: TSizes.sm,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,14 +29,15 @@ class TProductDetailMetaData extends StatelessWidget {
         /// --Discount & price
         Row(
           children: [
-            TProductSaleTag(title: "20"),
-            TProductPriceText(price: "12.6"),
+            if(salePercentage != null) 
+              TProductSaleTag(title: salePercentage),
+            TProductPriceText(price: price, curencySign: " ",),
           ],
         ),
 
         /// --Product name
         Text(
-          TTexts.nikeAirShoes,
+          product.title,
           style: Theme.of(context).textTheme.titleLarge,
         ),
 
@@ -41,7 +50,7 @@ class TProductDetailMetaData extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               TextSpan(
-                text: TTexts.inStock,
+                text: controller.getProductStockStatus(product.stock),
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
@@ -51,61 +60,6 @@ class TProductDetailMetaData extends StatelessWidget {
         /// --Brand logo
         TBrandIconText(title: "Nike"),
 
-        /// --Variation
-        TRoundedContainer(
-          backgroundColor: TColors.darkGrey.withOpacity(0.4),
-          padding: EdgeInsets.all(TSizes.sm),
-          radius: TSizes.sm + 3,
-          child: Column(
-            spacing: TSizes.sm,
-            children: [
-              Row(
-                children: [
-                  TProductDetailHeadingText(title: TTexts.variation),
-                  Padding(
-                    padding: const EdgeInsets.only(left: TSizes.md),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text.rich(
-                          TextSpan(
-                            children: [
-                              TextSpan(
-                                text: TTexts.price,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              TextSpan(
-                                text: "\$33.0",
-                                style: Theme.of(context).textTheme.titleLarge,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Text.rich(
-                          TextSpan(
-                            children: [
-                              TextSpan(
-                                text: TTexts.stock,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              TextSpan(
-                                text: TTexts.inStock,
-                                style: Theme.of(context).textTheme.titleLarge,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-              
-                ],
-              ),
-
-              TReadmoreText(text: TTexts.loremText)
-            ],
-          ),
-        ),
       ],
     );
   }

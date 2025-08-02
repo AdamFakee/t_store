@@ -10,7 +10,7 @@ import 'package:t_store/common/widgets/product/product_sale_tag.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
-import 'package:t_store/features/shop/controllers/product_controller.dart';
+import 'package:t_store/features/shop/controllers/products/product_controller.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/product_details/product_details.dart';
 import 'package:t_store/utils/constants/colors.dart';

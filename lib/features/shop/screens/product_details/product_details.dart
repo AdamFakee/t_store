@@ -26,7 +26,7 @@ class ProductDetails extends StatelessWidget {
         child: Column(
           children: [
             /// --Product images
-            TCurvedEdgeWidget(child: TProductImageSlider()),
+            TCurvedEdgeWidget(child: TProductImageSlider(product: product,)),
 
             /// --Product desc
             Padding(
@@ -40,10 +40,10 @@ class ProductDetails extends StatelessWidget {
                   TProductRatingAndSharing(),
 
                   /// --Information about product: stock, price, name....
-                  TProductDetailMetaData(),
+                  TProductDetailMetaData(product: product,),
 
                   /// --Attributes selection
-                  TProductDetailAttributesSelection(),
+                  TProductDetailAttributesSelection(product: product,),
 
                   /// --Button Checkout
                   SizedBox(height: TSizes.sm,),
@@ -56,14 +56,18 @@ class ProductDetails extends StatelessWidget {
                   ),
 
                   /// --Description
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TProductDetailHeadingText(title: TTexts.description),
-                      SizedBox(height: TSizes.spaceBtwItems / 2,),
-                      TReadmoreText(text: TTexts.loremText)
-                    ],
-                  ),
+                  if (product.description != null && product.description!.isNotEmpty)
+                    SizedBox(
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TProductDetailHeadingText(title: TTexts.description),
+                          SizedBox(height: TSizes.spaceBtwItems / 2),
+                          TReadmoreText(text: product.description!)
+                        ],
+                      ),
+                    ),
 
                   Divider(),
 

@@ -216,7 +216,7 @@ class TDummyData {
           price: 199000,
           salePrice: 149000,
           stock: 30,
-          image: 'https://images.unsplash.com/photo-1571461638248-4716fede1ada?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHRzaGlydF90aHVtYnxlbnwwfHwwfHx8MA%3D%3D',
+          image: 'https://images.unsplash.com/photo-1635796273083-93e4091d9712?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGhvb2R5fGVufDB8fDB8fHww',
           attributeValues: {'Color': 'Blue', 'Size': 'M'},
         ),
       ],

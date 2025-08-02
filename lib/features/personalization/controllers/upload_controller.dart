@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:t_store/features/shop/controllers/banner_controller.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
-import 'package:t_store/features/shop/controllers/product_controller.dart';
+import 'package:t_store/features/shop/controllers/products/product_controller.dart';
 import 'package:t_store/utils/helpers/dummy_data.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
 
