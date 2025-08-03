@@ -83,7 +83,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin  {
             body: Padding(
               padding: const EdgeInsets.all(TSizes.md),
               child: TabBarView(
-                children: categories.map((category) => TCategoryTab()).toList(),
+                children: categories.map((category) => TCategoryTab(category: category)).toList(),
               ),
             ),
           ),

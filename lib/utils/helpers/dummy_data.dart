@@ -1,4 +1,5 @@
 import 'package:t_store/features/shop/models/banner_model.dart';
+import 'package:t_store/features/shop/models/brand_category_model.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
 import 'package:t_store/features/shop/models/category_model.dart';
 import 'package:t_store/features/shop/models/product_attributes_model.dart';
@@ -180,6 +181,65 @@ class TDummyData {
     ),
   ];
 
+  final List<BrandCategoryModel> brandCategories = [
+    // Nike
+    BrandCategoryModel(brandName: 'Nike', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Nike', categoryId: '3'), // Cloths
+    BrandCategoryModel(brandName: 'Nike', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Nike', categoryId: '7'), // Cosmetics
+    BrandCategoryModel(brandName: 'Nike', categoryId: '8'), // Sport Shoes
+    BrandCategoryModel(brandName: 'Nike', categoryId: '9'), // Sport Suits
+    BrandCategoryModel(brandName: 'Nike', categoryId: '16'), // Shirts
+    // Adidas
+    BrandCategoryModel(brandName: 'Adidas', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Adidas', categoryId: '3'), // Cloths
+    BrandCategoryModel(brandName: 'Adidas', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Adidas', categoryId: '8'), // Sport Shoes
+    BrandCategoryModel(brandName: 'Adidas', categoryId: '9'), // Sport Suits
+    // Puma
+    BrandCategoryModel(brandName: 'Puma', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Puma', categoryId: '3'), // Cloths
+    BrandCategoryModel(brandName: 'Puma', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Puma', categoryId: '2'), // Electronics
+    BrandCategoryModel(brandName: 'Puma', categoryId: '8'), // Sport Shoes
+    BrandCategoryModel(brandName: 'Puma', categoryId: '9'), // Sport Suits
+    // Under Armour
+    BrandCategoryModel(brandName: 'Under Armour', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Under Armour', categoryId: '3'), // Cloths
+    BrandCategoryModel(brandName: 'Under Armour', categoryId: '6'), // Shoes
+    // New Balance
+    BrandCategoryModel(brandName: 'New Balance', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'New Balance', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'New Balance', categoryId: '8'), // Sport Shoes
+    BrandCategoryModel(brandName: 'New Balance', categoryId: '17'), // Sunglasses
+    BrandCategoryModel(brandName: 'New Balance', categoryId: '18'), // Bracelets
+    // Reebok
+    BrandCategoryModel(brandName: 'Reebok', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Reebok', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Reebok', categoryId: '8'), // Sport Shoes
+    BrandCategoryModel(brandName: 'Reebok', categoryId: '5'), // Furniture (kitchen appliances)
+    // Converse
+    BrandCategoryModel(brandName: 'Converse', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Converse', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Converse', categoryId: '2'), // Electronics
+    BrandCategoryModel(brandName: 'Converse', categoryId: '8'), // Sport Shoes
+    // Vans
+    BrandCategoryModel(brandName: 'Vans', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Vans', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Vans', categoryId: '8'), // Sport Shoes
+    // FILA
+    BrandCategoryModel(brandName: 'FILA', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'FILA', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'FILA', categoryId: '7'), // Cosmetics
+    BrandCategoryModel(brandName: 'FILA', categoryId: '4'), // Animals
+    BrandCategoryModel(brandName: 'FILA', categoryId: '13'), // Office furniture (backpacks)
+    // Asics
+    BrandCategoryModel(brandName: 'Asics', categoryId: '1'), // Sports
+    BrandCategoryModel(brandName: 'Asics', categoryId: '2'), // Electronics
+    BrandCategoryModel(brandName: 'Asics', categoryId: '6'), // Shoes
+    BrandCategoryModel(brandName: 'Asics', categoryId: '8'), // Sport Shoes
+  ];
+
   final List<ProductModel> demoProducts = [
     // 1. Áo thun nam
     ProductModel(
@@ -188,6 +248,7 @@ class TDummyData {
       stock: 100,
       price: 199000,
       salePrice: 149000,
+      categoryId: '16', // Shirts
       thumbnail:
           'https://images.unsplash.com/photo-1700585560129-2c03e2a3f511?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRzaGlydF90aHVtYnxlbnwwfHwwfHx8MA%3D%3D',
       productType: ProductType.variation.name,
@@ -239,6 +300,7 @@ class TDummyData {
       title: 'Quần jeans nam',
       stock: 80,
       price: 490,
+      categoryId: '3', // Cloths
       salePrice: 399,
       thumbnail:
           'https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amVhbnN8ZW58MHx8MHx8fDA%3D',
@@ -290,6 +352,7 @@ class TDummyData {
       title: 'Giày thể thao',
       stock: 50,
       price: 899,
+      categoryId: '8',
       salePrice: 699,
       thumbnail:
           'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c25lYWtlcnN8ZW58MHx8MHx8fDA%3D',
@@ -345,6 +408,7 @@ class TDummyData {
       title: 'Túi xách da nữ',
       stock: 45,
       price: 650,
+      categoryId: '3',
       salePrice: 50,
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1723826753083-2309f7203ab1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGFuZGJhZ3xlbnwwfHwwfHx8MA%3D%3D',
@@ -404,6 +468,7 @@ class TDummyData {
       id: '005',
       title: 'Đồng hồ thông minh',
       stock: 35,
+      categoryId: '2',
       price: 12,
       salePrice: 9,
       thumbnail:
@@ -455,6 +520,7 @@ class TDummyData {
       id: '006',
       title: 'Tai nghe Bluetooth',
       stock: 60,
+      categoryId: '2', // Electronics
       price: 85,
       salePrice: 60,
       thumbnail:
@@ -506,6 +572,7 @@ class TDummyData {
       title: 'Áo khoác dù nam',
       stock: 40,
       price: 45,
+      categoryId: '3', // Electronics
       salePrice: 39,
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1674719144570-0728faf14f96?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amFja2V0fGVufDB8fDB8fHww',
@@ -557,6 +624,7 @@ class TDummyData {
       title: 'Bàn phím cơ gaming',
       stock: 25,
       price: 120,
+      categoryId: '2', // Electronics
       salePrice: 90,
       thumbnail:
           'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2V5Ym9hcmR8ZW58MHx8MHx8fDA%3Dg',
@@ -606,6 +674,7 @@ class TDummyData {
       id: '009',
       title: 'Nồi chiên không dầu',
       stock: 30,
+      categoryId: '5', // Electronics
       price: 150,
       salePrice: 10,
       thumbnail:
@@ -632,6 +701,7 @@ class TDummyData {
       id: '010',
       title: 'Son lì cao cấp',
       stock: 50,
+      categoryId: '7', // Electronics
       price: 25,
       salePrice: 19,
       thumbnail:
@@ -679,6 +749,7 @@ class TDummyData {
     // 11. Laptop Gaming
     ProductModel(
       id: '011',
+      categoryId: '14', // Electronics
       title: 'Laptop Gaming RTX 3060',
       stock: 15,
       price: 250,
@@ -733,6 +804,7 @@ class TDummyData {
       id: '012',
       title: 'Smartphone Flagship 2023',
       stock: 30,
+      categoryId: '15', // Electronics
       price: 180,
       salePrice: 169,
       thumbnail:
@@ -784,6 +856,7 @@ class TDummyData {
       id: '013',
       title: 'Balo du lịch chống nước',
       stock: 40,
+      categoryId: '1', // Electronics
       price: 45,
       salePrice: 30,
       thumbnail:
@@ -835,6 +908,7 @@ class TDummyData {
       title: 'Gối ôm hình thú',
       stock: 60,
       price: 10,
+      categoryId: '4', // Electronics
       salePrice: 2,
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1664300639940-9ee2bbc1bd1d?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGlsbG93fGVufDB8fDB8fHww',
@@ -884,6 +958,7 @@ class TDummyData {
     // 15. Máy xay sinh tố
     ProductModel(
       id: '015',
+      categoryId: '5', // Electronics
       title: 'Máy xay sinh tố đa năng',
       stock: 25,
       price: 80,
@@ -913,6 +988,7 @@ class TDummyData {
       stock: 50,
       price: 20,
       salePrice: 10,
+      categoryId: '5', // Electronics
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1681154819809-b660a509e1ee?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGhlcm1vc3xlbnwwfHwwfHx8MA%3D%3D',
       productType: ProductType.variation.name,
@@ -962,6 +1038,7 @@ class TDummyData {
       title: 'Kính mát chống UV',
       stock: 35,
       price: 30,
+      categoryId: '16', // Electronics
       salePrice: 20,
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1682470102756-4592362e8516?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3VuZ2xhc3N8ZW58MHx8MHx8fDA%3D',
@@ -1014,6 +1091,7 @@ class TDummyData {
       title: 'Vòng tay phong cách',
       stock: 45,
       price: 12,
+      categoryId: '16', // Electronics
       salePrice: 9,
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1681276168324-a6f1958aa191?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnJhY2VsZXR8ZW58MHx8MHx8fDA%3D',
@@ -1068,6 +1146,7 @@ class TDummyData {
       stock: 20,
       price: 12,
       salePrice: 10,
+      categoryId: '3', // Electronics
       thumbnail:
           'https://plus.unsplash.com/premium_photo-1679106770086-f4355693be1b?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyZnVtZXxlbnwwfHwwfHx8MA%3D%3D',
       productType: ProductType.variation.name,
@@ -1117,6 +1196,7 @@ class TDummyData {
       title: 'Bộ bàn ăn cao cấp',
       stock: 12,
       price: 25,
+      categoryId: '12', // Electronics
       salePrice: 22,
       thumbnail:
           'https://images.unsplash.com/photo-1554042861-c5b9add98f2c?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGluZXJ3YXJlfGVufDB8fDB8fHww',

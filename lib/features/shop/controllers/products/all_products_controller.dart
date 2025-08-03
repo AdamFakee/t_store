@@ -14,8 +14,10 @@ class AllProductsController extends GetxController {
   final RxList<ProductModel> products = <ProductModel>[].obs;
 
   /// get products by query
-  Future<List<ProductModel>> getProducts(Query query) async {
+  Future<List<ProductModel>> getProducts(Query? query) async {
     try {
+      if(query == null) return [];
+      
       return await _productRepo.fetchProductsByQuery(query);
     } catch (e) {
       TSnackBar.errorSnackBar(title: "Oh", message: TTexts.somethingWentWrong);

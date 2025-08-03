@@ -12,7 +12,7 @@ class TBrandShowCase extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: [
         /// Brand
-        TBrandCardWithImage(),
+        // TBrandCardWithImage(),
         SizedBox(height: TSizes.spaceBtwSections),
 
         /// Product

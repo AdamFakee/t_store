@@ -16,12 +16,12 @@ import 'package:t_store/utils/popups/snack_bar.dart';
 class AllProducts extends StatelessWidget {
   const AllProducts({
     super.key,
-    required this.query,
+    this.query,
     required this.title,
     this.futureMethod,
   });
 
-  final Query query;
+  final Query? query;
   final String title;
   /// [futureMethod] is pass "fucntion future" and dont need to use controller
   final Future<List<ProductModel>>? futureMethod;

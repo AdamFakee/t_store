@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:t_store/data/repositories/brand_category/brand_category_repository.dart';
 import 'package:t_store/features/shop/controllers/banner_controller.dart';
 import 'package:t_store/features/shop/controllers/brand_controller.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
@@ -10,11 +11,16 @@ class UploadController extends GetxController {
   static UploadController get instace => Get.find();
 
   // variables
+
+  // controller
   final loading = false.obs;
   final _categoryController = Get.put(CategoryController());
   final _bannerController = Get.put(BannerController());
   final _productController = Get.put(ProductController());
   final _brandController = Get.put(BrandController());
+
+  // repo
+  final _brandCategoriesRepo = Get.put(BrandCategoryRepository());
   final _dummyData = TDummyData(); 
 
   /// upload dummy categories to firebase
@@ -69,7 +75,21 @@ class UploadController extends GetxController {
   Future<void> uploadBrands() async {
     try {
       loading(true);
-      await _brandController.uploadDummyData(_dummyData.brands);
+      await _brandCategoriesRepo.uploadDummyData(_dummyData.brandCategories);
+
+      TSnackBar.successSnackBar(title: "Successfully", message: "Upload dummy data to firebase");
+    } catch (e) {
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
+    } finally {
+      loading(false);
+    }
+  }
+
+  /// upload dummy brands to firebase
+  Future<void> uploadBrandCategories() async {
+    try {
+      loading(true);
+      await _brandCategoriesRepo.uploadDummyData(_dummyData.brandCategories);
 
       TSnackBar.successSnackBar(title: "Successfully", message: "Upload dummy data to firebase");
     } catch (e) {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/brands/cards/brand_card.dart';
 import 'package:t_store/common/widgets/product/product_sortable/products_sortable.dart';
 import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
-import 'package:t_store/features/shop/controllers/brand_controller.dart';
+import 'package:t_store/features/shop/controllers/products/product_controller.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -16,7 +16,7 @@ class BrandProducts extends StatelessWidget {
   final BrandModel brand;
   @override
   Widget build(BuildContext context) {
-    final controller = BrandController.instance;
+    final productController = Get.put(ProductController());
 
     return Scaffold(
       appBar: TAppBar(
@@ -47,7 +47,7 @@ class BrandProducts extends StatelessWidget {
             TSectionTextHeading(title: TTexts.products),
             SizedBox(height: TSizes.spaceBtwItems),
             FutureBuilder(
-          future: controller.fetchProductsByBrandName(brand.name), 
+          future: productController.fetchProductsByBrandName(brand.name), 
           builder: (_, snapshot) {
             final loading = TVerticalProductShimmer();
             if(snapshot.connectionState == ConnectionState.waiting) {

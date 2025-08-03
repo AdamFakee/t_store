@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/brand/brand_repository.dart';
-import 'package:t_store/data/repositories/product/product_repository.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
-import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
 
 class BrandController extends GetxController {
@@ -10,7 +8,6 @@ class BrandController extends GetxController {
 
   final loading = false.obs;
   final _brandRepo = Get.put(BrandRepository());
-  final _productRepo = Get.put(ProductRepository());
   final RxList<BrandModel> brands = <BrandModel>[].obs;
 
   @override
@@ -30,7 +27,6 @@ class BrandController extends GetxController {
 
       // update categoriesList
       brands.assignAll(allBrands);
-
     } catch (e) {
       TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
     } finally {
@@ -41,7 +37,7 @@ class BrandController extends GetxController {
 
   Future<List<BrandModel>> fetchBrands() async {
     try {
-      // fetch 
+      // fetch
       return await _brandRepo.getBrands(limit: 10);
     } catch (e) {
       TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
@@ -49,10 +45,11 @@ class BrandController extends GetxController {
     }
   }
 
-  Future<List<ProductModel>> fetchProductsByBrandName(String brandName) async {
+  /// get brands with categoryId
+  Future<List<BrandModel>> fetchBrandsByCategoryId(String categoryId) async {
     try {
-      // fetch 
-      return await _productRepo.fetchProductsByBrandName(brandName);
+      // fetch
+      return await _brandRepo.getBrandsByCategoryId(categoryId);
     } catch (e) {
       TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
       return [];
@@ -65,7 +62,7 @@ class BrandController extends GetxController {
       // show loading
       loading.value = true;
 
-      for(var brand in brands) {
+      for (var brand in brands) {
         await _brandRepo.uploadDummyData(brand);
       }
     } catch (e) {

@@ -91,4 +91,75 @@ class ProductController extends GetxController{
   String getProductStockStatus(int stock) {
     return stock > 0 ? "In Stock" : "Out of Stock";
   }
+
+  Future<List<ProductModel>> fetchProductsByCategoryId(String categoryId, [int limit = 4]) async {
+    try {
+      // fetch
+      return await _productRepo.fetchProductsByCategoryId(categoryId, limit);
+    } catch (e) {
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
+      return [];
+    }
+  }
+
+
+  /// get featured product with brandName
+  Future<List<ProductModel>> fetchFeaturedProductByBrandName(
+    String brandName,
+  ) async {
+    try {
+      // fetch
+      return await _productRepo.getFeaturedProductsByBrandName(
+        brandName: brandName,
+      );
+    } catch (e) {
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
+      return [];
+    }
+  }
+
+  /// get [cnt] image from [products]
+  List<String> getRandomImagesFromProducts(
+    List<ProductModel> products, {
+    cnt = 3,
+  }) {
+    // merge all images in product to one list
+    final images = products.expand((product) {
+      if (product.images != null && product.images!.isNotEmpty) {
+        return product.images!.cast<String>();
+      }
+      return <String>[];
+    }).toList();
+
+    // check images emtpy
+    if (images.isEmpty) return []; 
+
+    // change images position randomly
+    final random = Random();
+    images.shuffle(random);
+    
+    /// image is not equal [cnt]
+    /// 
+    /// get random image url in list<String>
+    if (images.length < cnt) {
+      final result = List<String>.from(images);
+      while (result.length < cnt) {
+        result.add(images[random.nextInt(images.length)]);
+      }
+      return result;
+    }
+
+    // return [cnt] images
+    return images.take(cnt).toList();
+  }
+
+  Future<List<ProductModel>> fetchProductsByBrandName(String brandName) async {
+    try {
+      // fetch
+      return await _productRepo.fetchProductsByBrandName(brandName);
+    } catch (e) {
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
+      return [];
+    }
+  }
 }
