@@ -4,11 +4,12 @@ import 'package:t_store/common/widgets/appbar/tabbar.dart';
 import 'package:t_store/common/widgets/brands/cards/brand_card.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
+import 'package:t_store/common/widgets/shimmers/brands/featured_brand_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/shop/controllers/brand_controller.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/brands/all_brands.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -19,8 +20,10 @@ class TStoreHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brandController = Get.put(BrandController());
     final controller = CategoryController.instace;
     final bool isDarkMode = THelperFunctions.isDarkMode(context);
+
     return SliverAppBar(
       floating: true, // hiển thị tabbar nổi lên
       pinned: true, // pin tabbar
@@ -50,16 +53,24 @@ class TStoreHeader extends StatelessWidget {
             ),
 
             /// -- Brands GRID
-            TGridLayout(
-              itemCount: 4,
-              crossAxisCount: 2,
-              mainAxisExtent: 80,
-              itemBuilder: (_, _) => TBrandCard(
-                numberOfProducts: 250,
-                titleBrand: "Nike",
-                imageUrl: TImage.brandNike,
-              ),
-            ),
+            Obx(
+              () {
+                if(brandController.loading.value) return TFeaturedBrandShimmer();
+                return TGridLayout(
+                  itemCount: brandController.brands.length,
+                  crossAxisCount: 2,
+                  mainAxisExtent: 80,
+                  itemBuilder: (_, index) {
+                    final brand = brandController.brands[index];
+                    return  TBrandCard(
+                      numberOfProducts: brand.productsCount,
+                      titleBrand: brand.name,
+                      imageUrl: brand.image,
+                    );
+                  },
+                );
+              }
+            )
           ],
         ),
       ),

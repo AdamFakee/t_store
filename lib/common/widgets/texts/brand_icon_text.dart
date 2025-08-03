@@ -21,7 +21,7 @@ class TBrandIconText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: textStyle ?? Theme.of(context).textTheme.titleMedium,
+          style: textStyle ?? Theme.of(context).textTheme.labelLarge,
           maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
         ),

@@ -53,7 +53,7 @@ class TBrandCard extends StatelessWidget {
             Flexible(
               child: TRoundedImage(
                 radius: TSizes.sm,
-                imageUrl: TImage.brandNike,
+                imageUrl: imageUrl,
                 isNeworkImage: true,
               ),
             ),
