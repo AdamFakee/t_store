@@ -40,7 +40,7 @@ class BrandProducts extends StatelessWidget {
             /// Product sortable
             TSectionTextHeading(title: TTexts.products),
             SizedBox(height: TSizes.spaceBtwItems),
-            TProductsSortable(),
+            // TProductsSortable(),
           ],
         ),
       ),

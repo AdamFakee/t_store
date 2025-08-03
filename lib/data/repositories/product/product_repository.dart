@@ -31,6 +31,25 @@ class ProductRepository extends GetxController{
     }
   }
 
+  /// Function to get products with query
+  /// 
+  /// [limit] to set limit documents return from db. Default = 6
+  Future<List<ProductModel>> fetchProductsByQuery (Query query) async {
+    try {
+      final querySnapshot = await query.get();
+      final List<ProductModel> productsList = querySnapshot.docs.map((doc) => ProductModel.fromQuerySnapshot(doc)).toList();
+      return productsList;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
   /// Function upload products dummy data to firebase
   Future<void> uploadDummyData (List<ProductModel> products) async {
     try {
@@ -44,10 +63,9 @@ class ProductRepository extends GetxController{
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      print(e);
       throw TTexts.somethingWentWrong;
     }
   }
-  
+
 
 }

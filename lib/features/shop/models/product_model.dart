@@ -108,4 +108,37 @@ class ProductModel {
       return ProductModel.empty();
     }
   }
+
+  /// Map Json from querySnapshot in firebase
+  factory ProductModel.fromQuerySnapshot(QueryDocumentSnapshot<Object?> document) {
+    if(document.data() == null) return ProductModel.empty();
+
+    final data = document.data() as Map<String, dynamic>;
+    return ProductModel(
+      id: document.id,
+      stock: data["Stock"] ?? 0,
+      sku: data["SKU"],
+      price: data["Price"] ?? 0.0,
+      title: data["Title"] ?? "",
+      date: data["Date"] != null ? DateTime.parse(data["Date"]) : null,
+      salePrice: data["SalePrice"] ?? 0.0,
+      thumbnail: data["Thumbnail"] ?? "",
+      isFeatured: data["IsFeatured"] ?? false,
+      brand: data["Brand"] != null ? BrandModel.fromJson(data["Brand"]) : null,
+      description: data["Description"],
+      categoryId: data["CategoryId"],
+      images: List<String>.from(data["Images"] ?? []),
+      productType: data["ProductType"] ?? "",
+      productAttributes: List<ProductAttributeModel>.from(
+        data["ProductAttributes"]?.map(
+          (attr) => ProductAttributeModel.fromJson(attr),
+        ) ?? [],
+      ),
+      productVariations: List<ProductVariationModel>.from(
+        data["ProductVariations"]?.map(
+          (e) => ProductVariationModel.fromJson(e),
+        ) ?? [],
+      ),
+    );
+  }
 }

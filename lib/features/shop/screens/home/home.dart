@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
@@ -60,7 +61,10 @@ class HomeScreen extends StatelessWidget {
                     actionTitle: TTexts.viewAll,
                     actionTitleColor: isDarkMode ? TColors.light : TColors.black,
                     onTap: () {
-                      Get.to(() => AllProducts());
+                      Get.to(() => AllProducts(
+                        title: TTexts.productPopularTitle,
+                        query: FirebaseFirestore.instance.collection("Products").where("IsFeatured", isEqualTo: true).limit(8),
+                      ));
                     },
                   ),
                   // list featured products
