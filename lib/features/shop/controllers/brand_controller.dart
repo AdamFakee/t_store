@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/brand/brand_repository.dart';
+import 'package:t_store/data/repositories/product/product_repository.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
 
 class BrandController extends GetxController {
@@ -8,6 +10,7 @@ class BrandController extends GetxController {
 
   final loading = false.obs;
   final _brandRepo = Get.put(BrandRepository());
+  final _productRepo = Get.put(ProductRepository());
   final RxList<BrandModel> brands = <BrandModel>[].obs;
 
   @override
@@ -40,6 +43,16 @@ class BrandController extends GetxController {
     try {
       // fetch 
       return await _brandRepo.getBrands(limit: 10);
+    } catch (e) {
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
+      return [];
+    }
+  }
+
+  Future<List<ProductModel>> fetchProductsByBrandName(String brandName) async {
+    try {
+      // fetch 
+      return await _productRepo.fetchProductsByBrandName(brandName);
     } catch (e) {
       TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
       return [];

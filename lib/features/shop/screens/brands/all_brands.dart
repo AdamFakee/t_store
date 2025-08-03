@@ -56,7 +56,7 @@ class AllBrands extends StatelessWidget {
                   titleBrand: brand.name,
                   imageUrl: brand.image,
                   onTap: () {
-                    Get.to(() => BrandProducts());
+                    Get.to(() => BrandProducts(brand: brand));
                   },
                 );
               },

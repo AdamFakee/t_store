@@ -224,10 +224,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand1',
+        id: 'nike',
         name: 'Nike',
         image:
-            'https://images.unsplash.com/photo-1608541737042-87a12275d313?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmlrZXxlbnwwfHwwfHx8MA%3D%3D',
+            'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
+        isFeatured: true,
+        productsCount: 128,
       ),
     ),
 
@@ -273,9 +275,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand2',
-        name: 'DenimPro',
-        image: 'https://example.com/brands/denimpro.jpg',
+        id: 'nike',
+        name: 'Nike',
+        image:
+            'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
+        isFeatured: true,
+        productsCount: 128,
       ),
     ),
 
@@ -325,9 +330,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand3',
-        name: 'SportFlex',
-        image: 'https://example.com/brands/sportflex.jpg',
+        id: 'nike',
+        name: 'Nike',
+        image:
+            'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
+        isFeatured: true,
+        productsCount: 128,
       ),
     ),
 
@@ -382,9 +390,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand4',
-        name: 'LuxuryBag',
-        image: 'https://example.com/brands/luxurybag.jpg',
+        id: 'newbalance',
+        name: 'New Balance',
+        image:
+            'https://i.pinimg.com/736x/b8/bb/17/b8bb17513c3fe68ea0e8d436f04ce2b0.jpg',
+        isFeatured: false,
+        productsCount: 55,
       ),
     ),
 
@@ -430,9 +441,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand5',
-        name: 'TechWear',
-        image: 'https://example.com/brands/techwear.jpg',
+        id: 'converse',
+        name: 'Converse',
+        image:
+            'https://i.pinimg.com/736x/5e/ec/de/5eecdee0003031cb83fd90fa75d23d87.jpg',
+        isFeatured: true,
+        productsCount: 30,
       ),
     ),
 
@@ -477,9 +491,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand6',
-        name: 'SoundPlus',
-        image: 'https://example.com/brands/soundplus.jpg',
+        id: 'converse',
+        name: 'Converse',
+        image:
+            'https://i.pinimg.com/736x/5e/ec/de/5eecdee0003031cb83fd90fa75d23d87.jpg',
+        isFeatured: true,
+        productsCount: 30,
       ),
     ),
 
@@ -525,9 +542,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand7',
-        name: 'OutdoorGear',
-        image: 'https://example.com/brands/outdoorgear.jpg',
+        id: 'puma',
+        name: 'Puma',
+        image:
+            'https://i.pinimg.com/1200x/a6/ab/1b/a6ab1bdff407f2d45eba7e824b462644.jpg',
+        isFeatured: true,
+        productsCount: 78,
       ),
     ),
 
@@ -572,9 +592,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand8',
-        name: 'GamingPro',
-        image: 'https://example.com/brands/gamingpro.jpg',
+        id: 'puma',
+        name: 'Puma',
+        image:
+            'https://i.pinimg.com/1200x/a6/ab/1b/a6ab1bdff407f2d45eba7e824b462644.jpg',
+        isFeatured: true,
+        productsCount: 78,
       ),
     ),
 
@@ -595,9 +618,12 @@ class TDummyData {
         'https://plus.unsplash.com/premium_photo-1711477326406-2b53375330f7?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YWlyZnJ5ZXJ8ZW58MHx8MHx8fDA%3D',
       ],
       brand: BrandModel(
-        id: 'brand9',
-        name: 'HomeTech',
-        image: 'https://example.com/brands/hometech.jpg',
+        id: 'fila',
+        name: 'FILA',
+        image:
+            'https://i.pinimg.com/736x/95/f3/9b/95f39b2b24a6a37c7b15170ebaf38a62.jpg',
+        isFeatured: false,
+        productsCount: 28,
       ),
     ),
 
@@ -642,9 +668,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand10',
-        name: 'BeautyQueen',
-        image: 'https://example.com/brands/beautyqueen.jpg',
+        id: 'fila',
+        name: 'FILA',
+        image:
+            'https://i.pinimg.com/736x/95/f3/9b/95f39b2b24a6a37c7b15170ebaf38a62.jpg',
+        isFeatured: false,
+        productsCount: 28,
       ),
     ),
     // 11. Laptop Gaming
@@ -690,9 +719,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand11',
-        name: 'GameMaster',
-        image: 'https://example.com/brands/gamemaster.jpg',
+        id: 'asics',
+        name: 'Asics',
+        image:
+            'https://i.pinimg.com/1200x/53/ba/6b/53ba6bbd38c479fdd3db3dad044248a2.jpg',
+        isFeatured: false,
+        productsCount: 20,
       ),
     ),
 
@@ -738,9 +770,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand12',
-        name: 'MobileX',
-        image: 'https://example.com/brands/mobilex.jpg',
+        id: 'asics',
+        name: 'Asics',
+        image:
+            'https://i.pinimg.com/1200x/53/ba/6b/53ba6bbd38c479fdd3db3dad044248a2.jpg',
+        isFeatured: false,
+        productsCount: 20,
       ),
     ),
 
@@ -785,9 +820,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand13',
-        name: 'TravelGear',
-        image: 'https://example.com/brands/travelgear.jpg',
+        id: 'fila',
+        name: 'FILA',
+        image:
+            'https://i.pinimg.com/736x/95/f3/9b/95f39b2b24a6a37c7b15170ebaf38a62.jpg',
+        isFeatured: false,
+        productsCount: 28,
       ),
     ),
 
@@ -834,9 +872,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand14',
-        name: 'HomeComfort',
-        image: 'https://example.com/brands/homecomfort.jpg',
+        id: 'fila',
+        name: 'FILA',
+        image:
+            'https://i.pinimg.com/736x/95/f3/9b/95f39b2b24a6a37c7b15170ebaf38a62.jpg',
+        isFeatured: false,
+        productsCount: 28,
       ),
     ),
 
@@ -856,9 +897,12 @@ class TDummyData {
         'https://images.unsplash.com/photo-1585515320310-259814833e62?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmxlbmRlcnxlbnwwfHwwfHx8MA%3D%3D',
       ],
       brand: BrandModel(
-        id: 'brand15',
-        name: 'KitchenPro',
-        image: 'https://example.com/brands/kitchenpro.jpg',
+        id: 'reebok',
+        name: 'Reebok',
+        image:
+            'https://i.pinimg.com/1200x/6b/c6/03/6bc603dea673eb4161041b046c532225.jpg',
+        isFeatured: false,
+        productsCount: 40,
       ),
     ),
 
@@ -903,9 +947,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand16',
-        name: 'ThermoKing',
-        image: 'https://example.com/brands/thermoking.jpg',
+        id: 'reebok',
+        name: 'Reebok',
+        image:
+            'https://i.pinimg.com/1200x/6b/c6/03/6bc603dea673eb4161041b046c532225.jpg',
+        isFeatured: false,
+        productsCount: 40,
       ),
     ),
 
@@ -952,9 +999,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand17',
-        name: 'SunShades',
-        image: 'https://example.com/brands/sunshades.jpg',
+        id: 'newbalance',
+        name: 'New Balance',
+        image:
+            'https://i.pinimg.com/736x/b8/bb/17/b8bb17513c3fe68ea0e8d436f04ce2b0.jpg',
+        isFeatured: false,
+        productsCount: 55,
       ),
     ),
 
@@ -1002,9 +1052,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand18',
-        name: 'FashionJewel',
-        image: 'https://example.com/brands/fashionjewel.jpg',
+        id: 'newbalance',
+        name: 'New Balance',
+        image:
+            'https://i.pinimg.com/736x/b8/bb/17/b8bb17513c3fe68ea0e8d436f04ce2b0.jpg',
+        isFeatured: false,
+        productsCount: 55,
       ),
     ),
 
@@ -1049,9 +1102,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand19',
-        name: 'LuxuryScents',
-        image: 'https://example.com/brands/luxuryscents.jpg',
+        id: 'nike',
+        name: 'Nike',
+        image:
+            'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
+        isFeatured: true,
+        productsCount: 128,
       ),
     ),
 
@@ -1098,9 +1154,12 @@ class TDummyData {
         ),
       ],
       brand: BrandModel(
-        id: 'brand20',
-        name: 'HomeElite',
-        image: 'https://example.com/brands/homeelite.jpg',
+        id: 'nike',
+        name: 'Nike',
+        image:
+            'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
+        isFeatured: true,
+        productsCount: 128,
       ),
     ),
   ];
@@ -1109,7 +1168,8 @@ class TDummyData {
     BrandModel(
       id: 'nike',
       name: 'Nike',
-      image: 'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
+      image:
+          'https://i.pinimg.com/1200x/f0/02/8b/f0028bd01a501dd2228704c0668a145d.jpg',
       isFeatured: true,
       productsCount: 128,
     ),
@@ -1124,7 +1184,8 @@ class TDummyData {
     BrandModel(
       id: 'puma',
       name: 'Puma',
-      image: 'https://i.pinimg.com/1200x/a6/ab/1b/a6ab1bdff407f2d45eba7e824b462644.jpg',
+      image:
+          'https://i.pinimg.com/1200x/a6/ab/1b/a6ab1bdff407f2d45eba7e824b462644.jpg',
       isFeatured: true,
       productsCount: 78,
     ),
@@ -1163,14 +1224,16 @@ class TDummyData {
     BrandModel(
       id: 'vans',
       name: 'Vans',
-      image: 'https://i.pinimg.com/736x/fd/74/de/fd74de892276f8bdd13ddd53eb0288a3.jpg',
+      image:
+          'https://i.pinimg.com/736x/fd/74/de/fd74de892276f8bdd13ddd53eb0288a3.jpg',
       isFeatured: false,
       productsCount: 45,
     ),
     BrandModel(
       id: 'fila',
       name: 'FILA',
-      image: 'https://i.pinimg.com/736x/95/f3/9b/95f39b2b24a6a37c7b15170ebaf38a62.jpg',
+      image:
+          'https://i.pinimg.com/736x/95/f3/9b/95f39b2b24a6a37c7b15170ebaf38a62.jpg',
       isFeatured: false,
       productsCount: 28,
     ),

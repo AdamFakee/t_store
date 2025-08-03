@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/user/user_repository.dart';
+import 'package:t_store/features/shop/controllers/products/all_products_controller.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
 
 class GeneralBindings extends Bindings {
@@ -7,6 +8,7 @@ class GeneralBindings extends Bindings {
   void dependencies() {
     Get.put(NetworkManager());
     Get.put(UserRepository());
+    Get.lazyPut(() => AllProductsController());
   }
 
 }

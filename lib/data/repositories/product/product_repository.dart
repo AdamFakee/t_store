@@ -50,6 +50,22 @@ class ProductRepository extends GetxController{
     }
   }
 
+  /// Get products for brand with brand name
+  Future<List<ProductModel>> fetchProductsByBrandName (String brandName) async {
+    try {
+      final snapshot = await _db.collection("Products").where("Brand.Name", isEqualTo: brandName).get();
+      return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
   /// Function upload products dummy data to firebase
   Future<void> uploadDummyData (List<ProductModel> products) async {
     try {
