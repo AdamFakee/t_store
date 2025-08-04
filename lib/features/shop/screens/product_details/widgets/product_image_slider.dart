@@ -5,6 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/image_radius.dart';
+import 'package:t_store/common/widgets/product/favorite_button/favorite_button.dart';
 import 'package:t_store/features/shop/controllers/products/image_controller.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/constants/colors.dart';
@@ -67,7 +68,7 @@ class TProductImageSlider extends StatelessWidget {
         /// --Header
         TAppBar(
           showBackButton: true,
-          actions: [TCircularIcon(iconColor: Colors.red, icon: Iconsax.heart)],
+          actions: [TFavoriteButton(productId: product.id)],
         ),
       ],
     );

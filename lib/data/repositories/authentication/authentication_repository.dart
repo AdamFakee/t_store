@@ -15,6 +15,7 @@ import 'package:t_store/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:t_store/utils/exceptions/firebase_exceptions.dart';
 import 'package:t_store/utils/exceptions/format_exception.dart';
 import 'package:t_store/utils/exceptions/platform_exceptions.dart';
+import 'package:t_store/utils/local_storage/storage_utility.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -49,6 +50,10 @@ class AuthenticationRepository extends GetxController {
 
       // check user verified email exist or skip verified when sign-in by other platform
       if (user.emailVerified || isOAuthUser) {
+
+        // init specific storage for this user
+        await TLocalStorage().init(user.uid);
+
         return Get.offAll(() => NavigationMenu());
       } else {
         return Get.offAll(() => VerifyEmailScreen());

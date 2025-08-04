@@ -1,17 +1,33 @@
 import 'package:get_storage/get_storage.dart';
 
 class TLocalStorage {
-  // init private name-constructor 
-  static final TLocalStorage _instance = TLocalStorage._internal();
-
-  // when call this class => return _instance => singleton partten
-  factory TLocalStorage() {
-    return _instance;
-  }
-
+  // private name-constructor 
   TLocalStorage._internal();
 
-  final _storage = GetStorage();
+
+  // variable
+  static TLocalStorage? _instance;
+  late final GetStorage _storage;
+
+
+  // when call this contructor => return _instance => singleton partten
+  factory TLocalStorage() {
+    return _instance ?? TLocalStorage._internal();
+  }
+
+
+  /// set [storageName] of local storage when init
+  Future<void> init (String storageName) async {
+    // init specific container
+    await GetStorage.init(storageName);
+
+    _instance = TLocalStorage._internal();
+
+    // listen to specific container
+    _instance!._storage = GetStorage(storageName);
+  }
+
+
 
   // Generic method to save data
   Future<void> saveData<T>(String key, T value) async {

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/styles/shadows.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/image_radius.dart';
+import 'package:t_store/common/widgets/product/favorite_button/favorite_button.dart';
 import 'package:t_store/common/widgets/product/product_add_button.dart';
 import 'package:t_store/common/widgets/product/product_sale_tag.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
@@ -69,10 +68,7 @@ class TProductCardVertical extends StatelessWidget {
                   Positioned(
                     top: 10,
                     right: 5,
-                    child: TCircularIcon(
-                      iconColor: Colors.red,
-                      icon: Iconsax.heart5,
-                    ),
+                    child: TFavoriteButton(productId: product.id),
                   ),
                 ],
               ),

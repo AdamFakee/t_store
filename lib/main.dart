@@ -12,7 +12,8 @@ Future<void> main() async {
   /// --Widget binding
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  /// --Init GetX localstorage
+  // --Init GetX localstorage
+  // this storage is genaral storage for device, not for specific user
   await GetStorage.init();
 
   /// -- Await Splash screen util other items load

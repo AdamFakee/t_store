@@ -116,6 +116,31 @@ class ProductRepository extends GetxController {
     }
   }
 
+  /// Fucntion to get list products by [productIds]
+  /// 
+  /// [productIds] = ["1", "2",...]
+  Future<List<ProductModel>> fetchProductsByProductIds(List<String> productIds) async {
+    try {
+      final List<ProductModel> products = [];
+      for(var productId in productIds) {
+        final snapshot = await _db.collection("Products").doc(productId).get();
+        final product = ProductModel.fromSnapshot(snapshot);
+
+        products.add(product);
+      }
+
+      return products;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
   Future<List<ProductModel>> fetchProductsByCategoryId(String categoryId, int limit) async {
     try {
       final snapshot = await _db
@@ -134,5 +159,4 @@ class ProductRepository extends GetxController {
       throw TTexts.somethingWentWrong;
     }
   }
-
 }

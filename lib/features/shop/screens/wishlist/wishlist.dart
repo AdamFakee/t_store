@@ -3,6 +3,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/product/product_cards/product_card_vertical.dart';
+import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
+import 'package:t_store/features/shop/controllers/products/favorite_product_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -13,10 +15,11 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = FavoriteProductController.instace;
     final bool isDarkMode = THelperFunctions.isDarkMode(context);
-    return SingleChildScrollView(
-      child: Column(
-        children: [
+
+    return Scaffold(
+      appBar:
           /// header
           TAppBar(
             title: Text(
@@ -31,18 +34,32 @@ class FavoriteScreen extends StatelessWidget {
               ),
             ],
           ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(TSizes.defaultSpace),
+        child: Column(
+          children: [
+            /// products GRID
+            FutureBuilder(
+              future: controller.fetchProductsByProductIds(),
+              builder: (_, snapshot) {
+                final loading = TVerticalProductShimmer();
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return loading;
+                }
 
-          /// products GRID
-          // Padding(
-          //   padding: EdgeInsetsGeometry.symmetric(horizontal: TSizes.sm),
-          //   child: TGridLayout(
-          //     itemCount: 14,
-          //     crossAxisCount: 2,
-          //     mainAxisExtent: TSizes.productVerticalHeight,
-          //     itemBuilder: (_, index) => TProductCardVertical(),
-          //   ),
-          // ),
-        ],
+                final products = snapshot.data!;
+
+                return TGridLayout(
+                  itemCount: products.length,
+                  crossAxisCount: 2,
+                  mainAxisExtent: TSizes.productVerticalHeight,
+                  itemBuilder: (_, index) =>
+                      TProductCardVertical(product: products[index]),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
