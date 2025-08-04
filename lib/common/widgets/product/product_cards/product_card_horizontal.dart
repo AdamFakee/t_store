@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/styles/shadows.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/image_radius.dart';
+import 'package:t_store/common/widgets/product/favorite_button/favorite_button.dart';
 import 'package:t_store/common/widgets/product/product_add_button.dart';
 import 'package:t_store/common/widgets/product/product_sale_tag.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
+import 'package:t_store/features/shop/controllers/products/product_controller.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class TProductCardHorizontal extends StatelessWidget {
-  const TProductCardHorizontal({super.key});
+  const TProductCardHorizontal({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instace;
     final isDarkMode = THelperFunctions.isDarkMode(context);
+
     return GestureDetector(
       onTap: () {},
       child: Container(
@@ -45,7 +49,7 @@ class TProductCardHorizontal extends StatelessWidget {
                   TRoundedImage(
                     width: double.infinity,
                     height: double.infinity,
-                    imageUrl: TImage.shoeSnaker,
+                    imageUrl: product.thumbnail,
                     isNeworkImage: true,
                     fit: BoxFit.cover,
                   ),
@@ -59,10 +63,7 @@ class TProductCardHorizontal extends StatelessWidget {
                   Positioned(
                     top: 10,
                     right: 5,
-                    child: TCircularIcon(
-                      iconColor: Colors.red,
-                      icon: Iconsax.heart5,
-                    ),
+                    child: TFavoriteButton(productId: product.id),
                   ),
                 ],
               ),
@@ -80,9 +81,9 @@ class TProductCardHorizontal extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: TSizes.sm,
                       children: [
-                        TProductTitleText(title: "Nike Track suit Black"),
+                        TProductTitleText(title: product.title),
                         // brand
-                        TBrandIconText(title: "Nike",),
+                        TBrandIconText(title: product.brand?.name ?? "",),
                       ],
                     ),
 
@@ -95,7 +96,7 @@ class TProductCardHorizontal extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         // price
-                        TProductPriceText(price: '200'),
+                        TProductPriceText(price: controller.getProductPrices(product), curencySign: "",),
                         // add button
                         TProductAddButton()
                       ],

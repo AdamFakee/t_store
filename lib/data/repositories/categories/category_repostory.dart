@@ -30,8 +30,23 @@ class CategoryRepostory extends GetxController {
     }
   }
 
-  /// Get sub categories
-  
+  /// Get sub categories by parent categoryId
+  Future<List<CategoryModel>> getSubCategoriesByCategoryId(String categoryId) async {
+    try {
+      final snapshot = await _db.collection("Categories").where("ParentId", isEqualTo: categoryId).get();
+      final list = snapshot.docs.map((doc) => CategoryModel.fromSnapshot(doc)).toList();
+      return list;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException().message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw TTexts.somethingWentWrong;
+    }
+  }
+
   /// Upload categories to firebase 
   Future<void> uploadDummyData(List<CategoryModel> categories) async {
     try {

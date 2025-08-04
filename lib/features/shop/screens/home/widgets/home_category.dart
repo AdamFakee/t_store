@@ -38,7 +38,7 @@ class THomeCategory extends StatelessWidget {
                     image: category.image,
                     isNetworkImage: true,
                     onTap: () {
-                      Get.to(() => SubCategories());
+                      Get.to(() => SubCategories(category: category,));
                     },
                   );
                 },

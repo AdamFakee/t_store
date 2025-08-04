@@ -18,7 +18,7 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
-  /// Load category data
+  /// Load category data (just take prarent category)
   Future<void> fetchCategories() async {
     try {
       // show loading
@@ -37,6 +37,17 @@ class CategoryController extends GetxController {
     } finally {
       // stop loading
       loading.value = false;
+    }
+  }
+
+  /// Load category data (just take prarent category)
+  Future<List<CategoryModel>> fetchSubCategoriesByCategoryId(String categoryId) async {
+    try {
+      // fetch categories
+      return await _categoryRepo.getSubCategoriesByCategoryId(categoryId);
+    } catch (e) {
+      TSnackBar.errorSnackBar(title: "Oh", message: e.toString());
+      return [];
     }
   }
 
