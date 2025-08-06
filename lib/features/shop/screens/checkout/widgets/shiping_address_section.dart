@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/modal_bottom_sheets/draggable_bottom_sheet.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
+import 'package:t_store/features/personalization/controllers/address_controller.dart';
+import 'package:t_store/features/personalization/models/address_model.dart';
 import 'package:t_store/features/personalization/screens/addresses/widgets/single_address.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -11,6 +14,7 @@ class TShippingAddressSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final addressController = Get.put(AddressController());
     return Column(
       children: [
         TSectionTextHeading(
@@ -20,49 +24,63 @@ class TShippingAddressSection extends StatelessWidget {
           onTap: () {
             TDraggableBottomSheet.show(
               context: context,
-              child: Column(children: [TSingleAddress(isSelected: true)]),
+              child: Obx(
+                () => Column(
+                  spacing: TSizes.md,
+                  children: addressController.addresses
+                      .map((e) => SizedBox(
+                        width: double.infinity,
+                        child: TSingleAddress(address: e)))
+                      .toList(),
+                ),
+              ),
             );
           },
         ),
-        Column(
-          spacing: TSizes.spaceBtwItems / 2,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /// --Reciver name
-            Text(TTexts.myName, style: Theme.of(context).textTheme.titleLarge),
 
-            /// --Phone number
-            Row(
+        // selected address
+        if(addressController.selectedAddress.value != AddressModel.empty())
+          Obx(
+            () => Column(
+              spacing: TSizes.spaceBtwItems / 2,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.phone, color: Colors.grey, size: 16),
-                const SizedBox(width: TSizes.spaceBtwItems),
-                Text(
-                  '+92-317-8059525',
-                  style: Theme.of(context).textTheme.bodyMedium,
+                /// --Reciver name
+                Text(addressController.selectedAddress.value.name, style: Theme.of(context).textTheme.titleLarge),
+            
+                /// --Phone number
+                Row(
+                  children: [
+                    const Icon(Icons.phone, color: Colors.grey, size: 16),
+                    const SizedBox(width: TSizes.spaceBtwItems),
+                    Text(
+                      addressController.selectedAddress.value.phoneNumber,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+            
+                /// --Address
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.location_history,
+                      color: Colors.grey,
+                      size: 16,
+                    ),
+                    const SizedBox(width: TSizes.spaceBtwItems),
+                    Expanded(
+                      child: Text(
+                        addressController.selectedAddress.value.specificAddress,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        softWrap: true,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-
-            /// --Address
-            Row(
-              children: [
-                const Icon(
-                  Icons.location_history,
-                  color: Colors.grey,
-                  size: 16,
-                ),
-                const SizedBox(width: TSizes.spaceBtwItems),
-                Expanded(
-                  child: Text(
-                    'South Liana, Maine 87695, USA',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                    softWrap: true,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
       ],
     );
   }
