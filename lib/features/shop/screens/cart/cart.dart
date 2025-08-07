@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
+import 'package:t_store/features/shop/controllers/products/cart_controller.dart';
 import 'package:t_store/features/shop/screens/cart/widgets/cart_item.dart';
 import 'package:t_store/features/shop/screens/checkout/checkout.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -11,6 +12,8 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CartController.instace;
+
     return Scaffold(
       bottomNavigationBar: ElevatedButton(
         onPressed: () {
@@ -27,24 +30,16 @@ class Cart extends StatelessWidget {
         child: Text(TTexts.checkOut),
       ),
       appBar: TAppBar(
-        title: Text("Store", style: Theme.of(context).textTheme.headlineMedium),
+        title: Text("Your Cart", style: Theme.of(context).textTheme.headlineMedium),
         showBackButton: true,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          spacing: TSizes.spaceBtwItems,
-          children: [
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-            TCartItem(),
-          ],
+        child: Obx(
+          () => Column(
+            spacing: TSizes.spaceBtwItems,
+            children: controller.cartItems.map((cartItem) => TCartItem(cartItem: cartItem)).toList()
+          ),
         ),
       ),
     );

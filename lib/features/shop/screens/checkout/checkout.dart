@@ -38,8 +38,8 @@ class Checkout extends StatelessWidget {
           spacing: TSizes.spaceBtwItems,
           children: [
             /// --Products
-            TCartItem(showAddButton: false,),
-            TCartItem(showAddButton: false,),
+            // TCartItem(showAddButton: false,),
+            // TCartItem(showAddButton: false,),
 
             /// --Coupon code
             TCouponCode(),

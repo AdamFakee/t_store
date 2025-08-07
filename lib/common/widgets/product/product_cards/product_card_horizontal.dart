@@ -98,7 +98,7 @@ class TProductCardHorizontal extends StatelessWidget {
                         // price
                         TProductPriceText(price: controller.getProductPrices(product), curencySign: "",),
                         // add button
-                        TProductAddButton()
+                        TProductAddButton(product: product,)
                       ],
                     ),
                   ],

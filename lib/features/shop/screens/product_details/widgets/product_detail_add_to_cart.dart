@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
+import 'package:t_store/features/shop/controllers/products/cart_controller.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
 class TProductDetailAddToCart extends StatelessWidget {
-  const TProductDetailAddToCart({super.key});
+  const TProductDetailAddToCart({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instace;
+
     return Container(
       padding: EdgeInsets.all(TSizes.md),
       height: TSizes.bottomNavigationHeight,
@@ -34,11 +41,15 @@ class TProductDetailAddToCart extends StatelessWidget {
                 backroundColor: TColors.darkGrey,
                 height: 30,
                 width: 30,
-                onPressed: () {},
+                onPressed: () {
+                  cartController.changeNumOfProductAddToCart(isPlus: false);
+                },
               ),
 
               /// --NumOfProducts
-              Text("2"),
+              Obx(
+                () => Text(cartController.numOfProductAddToCart.string)
+              ),
 
               /// --Add button
               TCircularIcon(
@@ -47,26 +58,36 @@ class TProductDetailAddToCart extends StatelessWidget {
                 backroundColor: TColors.black,
                 height: 30,
                 width: 30,
-                onPressed: () {},
+                onPressed: () {
+                  cartController.changeNumOfProductAddToCart(isPlus: true);
+                },
               ),
             ],
           ),
 
           /// --Add to cart button
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: TColors.black,
-              side: BorderSide.none,
-              padding: EdgeInsets.all(TSizes.md),
-              textStyle: TextStyle(
-                fontSize: 13
+          Obx(
+            () => ElevatedButton(
+              onPressed: cartController.numOfProductAddToCart.value > 0 
+                ? () {
+                  cartController.addItemToCart(product);
+                }
+                : null,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: cartController.numOfProductAddToCart.value > 0 ? TColors.black : TColors.buttonDisabled,
+                side: BorderSide.none,
+                padding: EdgeInsets.all(TSizes.md),
+                textStyle: TextStyle(
+                  fontSize: 13,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
               ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              )
+              child: Text(TTexts.addToCart, style: TextStyle(
+                color: Colors.white
+              ),),
             ),
-            child: Text(TTexts.addToCart),
           ),
         ],
       ),

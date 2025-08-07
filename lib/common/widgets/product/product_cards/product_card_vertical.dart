@@ -103,7 +103,7 @@ class TProductCardVertical extends StatelessWidget {
                       TProductPriceText(price: price, curencySign: "",),
                     ],
                   ),
-                  TProductAddButton(),
+                  TProductAddButton(product: product,),
                 ],
               ),
             ),

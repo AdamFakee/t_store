@@ -5,19 +5,23 @@ import 'package:t_store/common/widgets/images/image_radius.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
+import 'package:t_store/features/shop/models/cart_item_model.dart';
 import 'package:t_store/features/shop/screens/cart/widgets/product_text_rich.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
-import 'package:t_store/utils/constants/text_strings.dart';
 
 class TCartItem extends StatelessWidget {
-  const TCartItem({super.key, this.showAddButton = true});
+  const TCartItem({
+    super.key,
+    this.showAddButton = true,
+    required this.cartItem,
+  });
 
   /// [showAddButton] control add & minus button that can be shown or not
-  /// 
+  ///
   /// add & minus buttons can adjust num of products in cart
   final bool showAddButton;
+  final CartItemModel cartItem;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +29,9 @@ class TCartItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: TSizes.md,
       children: [
+        // image
         TRoundedImage(
-          imageUrl: TImage.tShirt,
+          imageUrl: cartItem.image,
           isNeworkImage: true,
           height: 50,
           width: 50,
@@ -38,19 +43,29 @@ class TCartItem extends StatelessWidget {
             spacing: 2,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TBrandIconText(title: "Nike"),
-              TProductTitleText(title: TTexts.phoneNumberTitle),
-              Row(
-                spacing: TSizes.sm,
-                children: [
-                  TProductTextRich(prefixTitle: TTexts.color, title: "Green"),
-                  TProductTextRich(prefixTitle: TTexts.size, title: "Eu 24"),
-                ],
-              ),
-
-              SizedBox(height: 5,),
+              // --brand
+              if(cartItem.brandName != null && cartItem.brandName!.isNotEmpty)
+                TBrandIconText(title: cartItem.brandName!),
               
-              if(showAddButton)
+              // -- product name
+              TProductTitleText(title: cartItem.title),
+
+              // -- variant attributes
+              if(cartItem.selectedVariation != null && cartItem.selectedVariation!.isNotEmpty)
+                Wrap(
+                  spacing: TSizes.sm,
+                  children: cartItem.selectedVariation!.entries.map((attribute) {
+                    return TProductTextRich(
+                      prefixTitle: attribute.key,
+                      title: attribute.value,
+                    );
+                  }).toList(),
+                ),
+
+
+              SizedBox(height: 5),
+
+              if (showAddButton)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -69,7 +84,7 @@ class TCartItem extends StatelessWidget {
                         ),
 
                         /// --NumOfProducts
-                        Text("2"),
+                        Text(cartItem.quantity.toString()),
 
                         /// --Add button
                         TCircularIcon(
@@ -84,9 +99,10 @@ class TCartItem extends StatelessWidget {
                     ),
 
                     /// --Product price
-                    TProductPriceText(price: "123", style: Theme.of(context).textTheme.titleLarge,),
-
-                    
+                    TProductPriceText(
+                      price: cartItem.price.toString(),
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                   ],
                 ),
             ],
