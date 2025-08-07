@@ -3,6 +3,7 @@ import 'package:t_store/features/shop/controllers/products/variation_controller.
 import 'package:t_store/features/shop/models/cart_item_model.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/local_storage/storage_utility.dart';
+import 'package:t_store/utils/popups/confirm_popup.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
 
 class CartController extends GetxController {
@@ -151,5 +152,40 @@ class CartController extends GetxController {
     return 0;
   }
 
+  /// increa number of specific product in cart. if num = 0 => show popup remove 
+  /// 
+  /// [isPlus] = true => +1
+  /// 
+  /// [isPlus] = false => -1
+  /// 
+  /// 
+  /// using [cartItemIndex] to up perfomance when user spamly change [cartItem.quantity]. If have [cartItemIndex] => we dont need to loop all [cartItems].
+  void changeProductQuantityInCart({
+    required String productId,
+    required int cartItemIndex,
+    String variantId = "",
+    bool isPlus = true,
+  }) async {
+    final currentItem = cartItems[cartItemIndex];
+    final currentQty = currentItem.quantity;
+
+    if (isPlus) {
+      cartItems[cartItemIndex] = currentItem.copyWith(quantity: currentQty + 1);
+    } else {
+      if (currentQty > 1) {
+        cartItems[cartItemIndex] = currentItem.copyWith(quantity: currentQty - 1);
+      } else {
+        // if [quatity] = 1 && [isPlus] = false => show popup ask user: "this action will remove this item".
+        final bool confirm = await TConfirmPopup.show(title: "This item in cart will be remove. Are you sure?");
+
+        if(confirm) {
+          cartItems.removeAt(cartItemIndex);
+        }
+        return;
+      }
+    }
+
+    cartItems.refresh(); // Cập nhật UI
+  }
 
 }

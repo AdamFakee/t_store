@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/common/widgets/images/image_radius.dart';
 import 'package:t_store/common/widgets/texts/brand_icon_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
+import 'package:t_store/features/shop/controllers/products/cart_controller.dart';
 import 'package:t_store/features/shop/models/cart_item_model.dart';
 import 'package:t_store/features/shop/screens/cart/widgets/product_text_rich.dart';
 import 'package:t_store/utils/constants/colors.dart';
@@ -14,17 +16,24 @@ class TCartItem extends StatelessWidget {
   const TCartItem({
     super.key,
     this.showAddButton = true,
-    required this.cartItem,
+    required this.cartItem, required this.cartItemIndex,
   });
 
   /// [showAddButton] control add & minus button that can be shown or not
   ///
   /// add & minus buttons can adjust num of products in cart
   final bool showAddButton;
+
+  // data render variables
   final CartItemModel cartItem;
+
+  /// using [cartItemIndex] to up perfomance when user spamly change [cartItem.quantity]. If have [cartItemIndex] => we dont need to loop all [cartItems].
+  final int cartItemIndex;
 
   @override
   Widget build(BuildContext context) {
+    final cartController = Get.put(CartController());
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: TSizes.md,
@@ -80,7 +89,9 @@ class TCartItem extends StatelessWidget {
                           backroundColor: TColors.darkGrey.withOpacity(0.4),
                           height: 30,
                           width: 30,
-                          onPressed: () {},
+                          onPressed: () {
+                            cartController.changeProductQuantityInCart(productId: cartItem.productId, variantId: cartItem.variationId, isPlus: false, cartItemIndex: cartItemIndex);
+                          },
                         ),
 
                         /// --NumOfProducts
@@ -93,7 +104,9 @@ class TCartItem extends StatelessWidget {
                           backroundColor: TColors.primary,
                           height: 30,
                           width: 30,
-                          onPressed: () {},
+                          onPressed: () {
+                            cartController.changeProductQuantityInCart(productId: cartItem.productId, variantId: cartItem.variationId, cartItemIndex: cartItemIndex);
+                          },
                         ),
                       ],
                     ),

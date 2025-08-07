@@ -36,10 +36,19 @@ class Cart extends StatelessWidget {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
         child: Obx(
-          () => Column(
-            spacing: TSizes.spaceBtwItems,
-            children: controller.cartItems.map((cartItem) => TCartItem(cartItem: cartItem)).toList()
-          ),
+          () => ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: controller.cartItems.length,
+                  itemBuilder: (context, index) {
+                    final cartItem = controller.cartItems[index];
+                    return TCartItem(
+                      cartItem: cartItem,
+                      cartItemIndex: index,
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(height: TSizes.spaceBtwItems),
+                )
+
         ),
       ),
     );

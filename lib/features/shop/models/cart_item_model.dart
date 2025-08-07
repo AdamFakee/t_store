@@ -3,7 +3,7 @@ class CartItemModel {
   final String title;
   final double price;
   final String image;
-  final int quantity;
+  int quantity;
   final String variationId;
   final String? brandName;
   final Map<String, String>? selectedVariation; // {color: red, size: m}
@@ -35,6 +35,28 @@ class CartItemModel {
       'brandName': brandName,
       'selectedVariation': selectedVariation,
     };
+  }
+
+  CartItemModel copyWith({
+    int? quantity,
+    String? productId,
+    String? title,
+    double? price,
+    String? image,
+    String? variationId,
+    String? brandName,
+    Map<String, String>? selectedVariation,
+  }) {
+    return CartItemModel(
+      productId: productId ?? this.productId,
+      title: title ?? this.title,
+      price: price ?? this.price,
+      image: image ?? this.image,
+      quantity: quantity ?? this.quantity,
+      variationId: variationId ?? this.variationId,
+      brandName: brandName ?? this.brandName,
+      selectedVariation: selectedVariation ?? this.selectedVariation,
+    );
   }
 
   factory CartItemModel.fromJson(Map<String, dynamic> data) {
