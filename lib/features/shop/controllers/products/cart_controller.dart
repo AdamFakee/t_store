@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:t_store/features/shop/controllers/products/variation_controller.dart';
 import 'package:t_store/features/shop/models/cart_item_model.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
+import 'package:t_store/utils/constants/get_storage_key.dart';
 import 'package:t_store/utils/local_storage/storage_utility.dart';
 import 'package:t_store/utils/popups/confirm_popup.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
@@ -14,7 +15,7 @@ class CartController extends GetxController {
 
   // variables
   // ignore: non_constant_identifier_names
-  final _STORAGE_KEY = "CART";
+  final _STORAGE_KEY = TGetStorageKey.cart;
 
   RxList<CartItemModel> cartItems = <CartItemModel>[].obs;
   RxInt numOfCartItems = 0.obs; // number of product in cart

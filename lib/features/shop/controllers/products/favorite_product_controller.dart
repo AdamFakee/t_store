@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/product/product_repository.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
+import 'package:t_store/utils/constants/get_storage_key.dart';
 import 'package:t_store/utils/local_storage/storage_utility.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
 
@@ -9,7 +10,7 @@ class FavoriteProductController extends GetxController {
   static FavoriteProductController get instace => Get.find();
 
   /// storage key 
-  final _favoriteKey = "FAVORITES";
+  final _favoriteKey = TGetStorageKey.favorite;
 
   // variables
   final _productRepo = ProductRepository.instace;
