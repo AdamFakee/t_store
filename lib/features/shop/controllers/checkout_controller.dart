@@ -1,14 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:t_store/common/widgets/success_screen.dart';
 import 'package:t_store/data/repositories/order/order_repository.dart';
 import 'package:t_store/features/personalization/controllers/address_controller.dart';
 import 'package:t_store/features/personalization/models/address_model.dart';
 import 'package:t_store/features/shop/controllers/products/cart_controller.dart';
 import 'package:t_store/features/shop/models/order_model.dart';
+import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/utils/constants/enums.dart';
+import 'package:t_store/utils/constants/get_storage_key.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
 import 'package:t_store/utils/helpers/price_caculations.dart';
+import 'package:t_store/utils/local_storage/storage_utility.dart';
 import 'package:t_store/utils/popups/full_screen_loader.dart';
 import 'package:t_store/utils/popups/snack_bar.dart';
 
@@ -20,6 +24,8 @@ class CheckoutController extends GetxController {
   final double shippingFee = TPricingCalculator.getShippingCost("");
   final double taxFee = TPricingCalculator.getTaxRateForLocation("");
   final RxDouble orderTotal = 0.0.obs;
+
+  final _storage = TLocalStorage();
 
   final _cartController = CartController.instace;
   final _addressController = Get.put(AddressController());
@@ -59,8 +65,25 @@ class CheckoutController extends GetxController {
       // save to db
       await _orderRepo.createNewOrder(order);
 
+      // remove all item in cart
+      await _storage.removeData(TGetStorageKey.cart);
+      
       // stop loading
       TFullScreenLoader.stopLoadingDialog();
+
+      // redirect
+      Get.off(() => TSuccessScreen(
+        title: "Order Placed Successfully 🎉",
+        subTitle: "Thank you for your purchase!\nYour order is being processed and will be shipped soon.",
+        image: "https://i.pinimg.com/736x/7a/ed/19/7aed19bbb9b9f925122336d7b83d15a3.jpg",
+        onPressed: () {
+          Get.offAll(() => HomeScreen());
+        },
+        isImageNetwork: true,
+      ));
+
+
+     
     } catch (e) {
       // stop loading
       TFullScreenLoader.stopLoadingDialog();

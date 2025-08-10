@@ -8,6 +8,7 @@ class TSuccessScreen extends StatelessWidget {
   // variables
   final String title, subTitle, image;
   final VoidCallback onPressed;
+  final bool isImageNetwork;
 
   const TSuccessScreen({
     super.key,
@@ -15,6 +16,7 @@ class TSuccessScreen extends StatelessWidget {
     required this.subTitle,
     required this.image,
     required this.onPressed,
+    this.isImageNetwork = false,
   });
   
   @override
@@ -25,8 +27,10 @@ class TSuccessScreen extends StatelessWidget {
         child: Column(
           children: [
             // image
-            Image.asset(
-              image,
+            Image(
+              image: isImageNetwork
+                  ? NetworkImage(image)
+                  : AssetImage(image),
               width: THelperFunctions.screenWidth(context) * 0.8,
             ),
             SizedBox(height: TSizes.spaceBtwSections),
