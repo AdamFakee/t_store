@@ -39,9 +39,13 @@ class TShippingAddressSection extends StatelessWidget {
         ),
 
         // selected address
-        if(addressController.selectedAddress.value != AddressModel.empty())
-          Obx(
-            () => Column(
+        Obx(
+          () {
+            // have not defaut address
+            if(addressController.selectedAddress.value == AddressModel.empty()) {
+              return const SizedBox();
+            }
+            return Column(
               spacing: TSizes.spaceBtwItems / 2,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -79,8 +83,9 @@ class TShippingAddressSection extends StatelessWidget {
                   ],
                 ),
               ],
-            ),
-          ),
+            );
+          }
+        ),
       ],
     );
   }

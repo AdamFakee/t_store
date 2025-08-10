@@ -1,3 +1,5 @@
+import 'package:t_store/features/shop/models/cart_item_model.dart';
+
 class TPricingCalculator {
   /// -- Tính tổng giá (bao gồm thuế và phí ship)
   static double calculateTotalPrice(double productPrice, String location) {
@@ -37,9 +39,12 @@ class TPricingCalculator {
     return 5.00; // Ví dụ phí vận chuyển $5
   }
 
-  /// -- Tính tổng giá trị giỏ hàng (comment sẵn)
-  // static double calculateCartTotal(CartModel cart) {
-  //   return cart.items.map((e) => e.price).fold(0, 
-  //     (previousPrice, currentPrice) => previousPrice + (currentPrice ?? 0));
-  // }
+  /// -- Tính tổng giá trị giỏ hàng 
+  static double calculateCartTotal(List<CartItemModel> cartItems) {
+    double total = 0;
+    for (var item in cartItems) {
+      total += item.quantity * item.price;
+    }
+    return total;
+  }
 }

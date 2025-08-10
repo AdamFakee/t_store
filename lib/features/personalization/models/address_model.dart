@@ -34,8 +34,19 @@ class AddressModel {
     postalCode: '',
     country: '',
     dateTime: null,
-    selectedAddress: false, 
+    selectedAddress: false,
   );
+
+  factory AddressModel.fromJson(Map<String, dynamic> data) {
+    return AddressModel(
+      name: data["Name"],
+      phoneNumber: data["PhoneNumber"],
+      street: data["Street"],
+      state: data["State"],
+      postalCode: data["PostalCode"],
+      country: data['Country'],
+    );
+  }
 
   /// Convert object to JSON
   Map<String, dynamic> toJson() {
@@ -91,7 +102,6 @@ class AddressModel {
     return parts.join(', ');
   }
 
-
   // so sánh 2 instace có bằng nhau hay k
   @override
   bool operator ==(Object other) {
@@ -111,7 +121,7 @@ class AddressModel {
 
   // convert data thành interger để check dễ hơn
   // đồng thời khi data thay đổi thì [hashcode] cũng thay đổi theo
-  // 
+  //
   // lần sau sẽ dùng package: "equalteble"
   @override
   int get hashCode => Object.hash(

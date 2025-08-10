@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:t_store/features/shop/controllers/checkout_controller.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -8,18 +10,22 @@ class TBillingAmountSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(CheckoutController());
+
     return Column(
       spacing: TSizes.sm,
       children: [
-        amountText(title: TTexts.subtotal, amount: 25.0, context: context),
-        amountText(title: TTexts.shippingFee, amount: 25.0, context: context),
-        amountText(title: TTexts.taxFee, amount: 25.0, context: context),
+        Obx(() => amountText(title: TTexts.subtotal, amount: controller.subTotal.value, context: context)),
+        amountText(title: TTexts.shippingFee, amount: controller.shippingFee, context: context),
+        amountText(title: TTexts.taxFee, amount: controller.taxFee, context: context),
         /// --order total
-        amountText(
-          title: TTexts.orderTotal,
-          amount: 25.0,
-          context: context,
-          isLargeText: true,
+        Obx(
+          () => amountText(
+            title: TTexts.orderTotal,
+            amount: controller.orderTotal.value,
+            context: context,
+            isLargeText: true,
+          ),
         ),
       ],
     );

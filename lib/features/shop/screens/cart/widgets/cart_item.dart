@@ -74,11 +74,12 @@ class TCartItem extends StatelessWidget {
 
               SizedBox(height: 5),
 
-              if (showAddButton)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    /// --Adjust num of products
+              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  /// --Adjust num of products
+                  if (showAddButton)
                     Row(
                       spacing: TSizes.sm,
                       children: [
@@ -111,13 +112,13 @@ class TCartItem extends StatelessWidget {
                       ],
                     ),
 
-                    /// --Product price
-                    TProductPriceText(
-                      price: cartItem.price.toString(),
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                  ],
-                ),
+                  /// --Product price
+                  TProductPriceText(
+                    price: cartItem.price.toString(),
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ],
+              ),
             ],
           ),
         ),
