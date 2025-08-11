@@ -21,6 +21,7 @@ dependencies:
   modal_bottom_sheet: ^3.0.0
   shimmer: ^3.0.0
   cached_network_image: ^3.4.1
+  easy_debounce: ^2.0.3
 
   # Icons
   iconsax: ^0.0.8
