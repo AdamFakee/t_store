@@ -10,6 +10,7 @@ import 'package:t_store/common/widgets/tiles/user_profile_tile.dart';
 import 'package:t_store/features/personalization/controllers/setting_controller.dart';
 import 'package:t_store/features/personalization/screens/addresses/addresses.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/personalization/screens/settings/custom_ui.dart';
 import 'package:t_store/features/personalization/screens/settings/upload_data.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/orders/orders.dart';
@@ -122,6 +123,14 @@ class Settings extends StatelessWidget {
                     SizedBox(height: TSizes.spaceBtwSections),
                     TSectionTextHeading(title: TTexts.appSettings),
                     SizedBox(height: TSizes.spaceBtwItems),
+
+                    // custom theme, language...
+                    TSettingMenuTile(
+                      title: "Customs",
+                      subTitle: "Change theme, language.....",
+                      icon: Iconsax.user_edit1,
+                      onTap: () => Get.to(() => CustomUi()),
+                    ),
 
                     // Upload dummy data to cloud
                     TSettingMenuTile(

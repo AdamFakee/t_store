@@ -7,7 +7,7 @@ class TLocalStorage {
 
   // variable
   static TLocalStorage? _instance;
-  late final GetStorage _storage;
+  GetStorage _storage = GetStorage();
 
 
   // when call this contructor => return _instance => singleton partten

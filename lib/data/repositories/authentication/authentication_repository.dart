@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:t_store/features/authentication/screens/login/login_screen.dart';
 import 'package:t_store/features/authentication/screens/onboarding_screen/onboarding.dart';
 import 'package:t_store/features/authentication/screens/register_screen/verify_email.dart';
+import 'package:t_store/localization/localization.dart';
 import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/get_storage_key.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -53,6 +54,8 @@ class AuthenticationRepository extends GetxController {
 
         // init specific storage for this user
         await TLocalStorage().init(user.uid);
+        // -- init localization
+  Get.put(TLocalization());
 
         return Get.offAll(() => NavigationMenu());
       } else {

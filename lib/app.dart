@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/bindings/general_bindings.dart';
+import 'package:t_store/l10n/app_localizations.dart';
+import 'package:t_store/localization/localization.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/routers/app_routers.dart';
 import 'package:t_store/utils/theme/theme.dart';
@@ -10,6 +12,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Get.put(TLocalization());
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: GeneralBindings(),
@@ -17,8 +21,17 @@ class App extends StatelessWidget {
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       getPages: AppRoutes.pages,
+
+      // -- set up multi locales
+      localizationsDelegates: TLanguage.localizationsDelegates,
+      supportedLocales: TLanguage.supportedLocales,
+      locale: locale.locale.value,
+
       /// Show loader meanwhile Authentication Repository is deciding to show relevant screen
-      home: const Scaffold(backgroundColor: TColors.primary, body: Center(child: CircularProgressIndicator(color: Colors.white),),),
+      home: const Scaffold(
+        backgroundColor: TColors.primary,
+        body: Center(child: CircularProgressIndicator(color: Colors.white)),
+      ),
     );
   }
 }

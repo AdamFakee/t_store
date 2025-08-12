@@ -9,4 +9,7 @@ class TGetStorageKey {
   
   /// favorite
   static const String favorite = "FAVORITES";
+
+  /// localiztion
+  static const String locale = "LOCALE";
 }

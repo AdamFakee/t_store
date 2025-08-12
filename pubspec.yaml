@@ -9,10 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   #util packages
   http: ^1.1.0
-  intl: ^0.18.1
+  intl: ^0.20.2
   logger: ^2.0.1
   connectivity_plus: ^6.1.4
   url_launcher: ^6.1.12
@@ -22,7 +24,8 @@ dependencies:
   shimmer: ^3.0.0
   cached_network_image: ^3.4.1
   easy_debounce: ^2.0.3
-
+  flutter_switch: ^0.3.2
+  
   # Icons
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.2
@@ -50,6 +53,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   # local assetsW
   assets:
