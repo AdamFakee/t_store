@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/product/cart/cart_menu_icon.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -15,13 +16,13 @@ class THomeAppbar extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            TTexts.homeAppbarTitle,
+            TLanguage.of(context)?.homeAppbarTitle ?? "",
             style: Theme.of(
               context,
             ).textTheme.labelMedium!.apply(color: TColors.light),
           ),
           Text(
-            TTexts.homeAppbarSubTitle,
+            TLanguage.of(context)?.homeAppbarSubTitle ?? "",
             style: Theme.of(context).textTheme.headlineSmall!
                 .apply(color: TColors.light),
           ),

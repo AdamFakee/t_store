@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/common/styles/spacing_styles.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -57,7 +58,7 @@ class TSuccessScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: onPressed,
-                child: Text(TTexts.continueText),
+                child: Text(TLanguage.of(context)?.continueText ?? ""),
               ),
             ),
           ],

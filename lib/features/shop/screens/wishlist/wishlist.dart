@@ -5,6 +5,7 @@ import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/features/shop/controllers/products/favorite_product_controller.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -23,7 +24,7 @@ class FavoriteScreen extends StatelessWidget {
           /// header
           TAppBar(
             title: Text(
-              TTexts.wishList,
+              TLanguage.of(context)?.wishList ?? "",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             actions: [

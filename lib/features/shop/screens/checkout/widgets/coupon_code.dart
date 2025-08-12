@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -54,7 +55,7 @@ class _TCouponCodeState extends State<TCouponCode> {
                 enabledBorder: InputBorder.none,
                 errorBorder: InputBorder.none,
                 disabledBorder: InputBorder.none,
-                hintText: TTexts.haveAPromoCode,
+                hintText: TLanguage.of(context)?.haveAPromoCode ?? "",
                 hintStyle: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -68,7 +69,7 @@ class _TCouponCodeState extends State<TCouponCode> {
                     ? TColors.primary
                     : TColors.darkGrey,
               ),
-              child: Text(TTexts.apply),
+              child: Text(TLanguage.of(context)?.apply ?? ""),
             ),
           ),
         ],

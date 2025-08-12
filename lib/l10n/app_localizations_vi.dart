@@ -211,7 +211,7 @@ class TLanguageVi extends TLanguage {
   String get hatTabbar => 'Mũ';
 
   @override
-  String get wishList => 'Danh sách yêu thích';
+  String get wishList => 'Yêu thích';
 
   @override
   String get account => 'Tài khoản';

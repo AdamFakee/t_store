@@ -5,6 +5,7 @@ import 'package:t_store/common/widgets/shimmers/category_shimers.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/sub_categories/sub_categories.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -22,7 +23,7 @@ class THomeCategory extends StatelessWidget {
         child: Column(
           children: [
             // header
-            TSectionTextHeading(title: TTexts.categoryPopularTitle),
+            TSectionTextHeading(title: TLanguage.of(context)?.productPopularTitle ?? ""),
 
             SizedBox(height: TSizes.md),
             // category scrollable

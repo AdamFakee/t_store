@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:readmore/readmore.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
 class TReadmoreText extends StatelessWidget {
@@ -18,8 +19,8 @@ class TReadmoreText extends StatelessWidget {
       text,
       trimMode: TrimMode.Line,
       trimLines: trimLines,
-      trimCollapsedText: TTexts.showMore,
-      trimExpandedText: TTexts.showLess,
+      trimCollapsedText: TLanguage.of(context)?.showMore ?? "",
+      trimExpandedText: TLanguage.of(context)?.showLess ?? "",
       moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
       lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
     );

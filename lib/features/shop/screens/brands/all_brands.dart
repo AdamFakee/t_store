@@ -6,6 +6,7 @@ import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/shimmers/brands/featured_brand_shimmer.dart';
 import 'package:t_store/features/shop/controllers/brand_controller.dart';
 import 'package:t_store/features/shop/screens/brands/brand_products.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -21,7 +22,7 @@ class AllBrands extends StatelessWidget {
     return Scaffold(
       appBar: TAppBar(
         title: Text(
-          TTexts.brands,
+          TLanguage.of(context)?.brands ?? "",
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         showBackButton: true,

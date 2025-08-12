@@ -9,6 +9,7 @@ import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/shop/controllers/brand_controller.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/brands/all_brands.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -43,8 +44,8 @@ class TStoreHeader extends StatelessWidget {
 
             /// -- Featured Brands
             TSectionTextHeading(
-              title: TTexts.featuredBrand,
-              actionTitle: TTexts.viewAll,
+              title: TLanguage.of(context)?.featuredBrand ?? "",
+              actionTitle: TLanguage.of(context)?.viewAll ?? "",
               actionTitleColor: isDarkMode ? TColors.white : TColors.black,
               titleColor: isDarkMode ? TColors.white : TColors.black,
               onTap: () {

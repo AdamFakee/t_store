@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/product/cart/cart_menu_icon.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:t_store/features/shop/screens/store/widgets/store_header.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -44,7 +44,7 @@ class _StoreState extends State<Store> with TickerProviderStateMixin  {
       child: Scaffold(
         appBar: TAppBar(
           title: Text(
-            "Store",
+            TLanguage.of(context)?.store ?? "",
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           actions: [

@@ -10,6 +10,7 @@ import 'package:t_store/features/shop/controllers/brand_controller.dart';
 import 'package:t_store/features/shop/controllers/products/product_controller.dart';
 import 'package:t_store/features/shop/models/category_model.dart';
 import 'package:t_store/features/shop/screens/all_products/all_products.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -64,8 +65,8 @@ class TCategoryTab extends StatelessWidget {
 
         /// Product
         TSectionTextHeading(
-          title: TTexts.youMightLike,
-          actionTitle: TTexts.viewAll,
+          title: TLanguage.of(context)?.youMightLike ?? "",
+          actionTitle: TLanguage.of(context)?.viewAll ?? "",
           actionTitleColor: isDarkMode ? TColors.white : TColors.black,
           titleColor: isDarkMode ? TColors.white : TColors.black,
           onTap: () {

@@ -7,6 +7,7 @@ import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/shop/controllers/products/product_controller.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -21,7 +22,7 @@ class BrandProducts extends StatelessWidget {
     return Scaffold(
       appBar: TAppBar(
         title: Text(
-          TTexts.brand,
+          TLanguage.of(context)?.brand ?? "",
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         showBackButton: true,
@@ -44,7 +45,7 @@ class BrandProducts extends StatelessWidget {
             SizedBox(height: TSizes.spaceBtwSections),
 
             /// Product sortable
-            TSectionTextHeading(title: TTexts.products),
+            TSectionTextHeading(title: TLanguage.of(context)?.products ?? ""),
             SizedBox(height: TSizes.spaceBtwItems),
             FutureBuilder(
           future: productController.fetchProductsByBrandName(brand.name), 

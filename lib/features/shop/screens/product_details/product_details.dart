@@ -10,6 +10,7 @@ import 'package:t_store/features/shop/screens/product_details/widgets/product_de
 import 'package:t_store/features/shop/screens/product_details/widgets/product_image_slider.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_rating_and_sharing.dart';
 import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -51,7 +52,7 @@ class ProductDetails extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text(TTexts.checkOut),
+                      child: Text(TLanguage.of(context)?.checkOut ?? ""),
                     ),
                   ),
 
@@ -62,9 +63,9 @@ class ProductDetails extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TProductDetailHeadingText(title: TTexts.description),
+                          TProductDetailHeadingText(title: TLanguage.of(context)?.description ?? ""),
                           SizedBox(height: TSizes.spaceBtwItems / 2),
-                          TReadmoreText(text: product.description!)
+                          TReadmoreText(text: TLanguage.of(context)?.description ?? "")
                         ],
                       ),
                     ),
@@ -79,7 +80,7 @@ class ProductDetails extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TProductDetailHeadingText(title: "${TTexts.review} (199)"),
+                        TProductDetailHeadingText(title: "${TLanguage.of(context)?.review ?? ""} (199)"),
                         Icon(Icons.arrow_forward_ios_outlined, size: TSizes.md,)
                       ],
                     ),

@@ -4,6 +4,7 @@ import 'package:t_store/common/widgets/custom_shapes/containers/rounded_containe
 import 'package:t_store/common/widgets/product/product_review/review_title_text.dart';
 import 'package:t_store/features/shop/screens/product_reviews/widgets/user_review_card.dart';
 import 'package:t_store/features/shop/screens/product_reviews/widgets/product_review_rating.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -23,7 +24,7 @@ class ProductReviews extends StatelessWidget {
       ),
       appBar: TAppBar(
         title: Text(
-          TTexts.reviewAndRatingTitle,
+          TLanguage.of(context)?.reviewAndRatingTitle ?? "",
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         showBackButton: true,
@@ -34,7 +35,7 @@ class ProductReviews extends StatelessWidget {
           child: Column(
             children: [
               /// --Sub title
-              TProductReivewTitleText(title: TTexts.reviewAndRatingSubTitle),
+              TProductReivewTitleText(title: TLanguage.of(context)?.reviewAndRatingSubTitle ?? ""),
               SizedBox(height: TSizes.spaceBtwItems),
 
               /// --Rating

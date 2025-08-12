@@ -6,6 +6,7 @@ import 'package:t_store/common/widgets/loadings/circular_full_screen_loading.dar
 import 'package:t_store/features/personalization/controllers/address_controller.dart';
 import 'package:t_store/features/personalization/screens/addresses/add_new_address.dart';
 import 'package:t_store/features/personalization/screens/addresses/widgets/single_address.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -34,7 +35,7 @@ class Addresses extends StatelessWidget {
         ),
         appBar: TAppBar(
           title: Text(
-            TTexts.address,
+            TLanguage.of(context)?.address ?? "",
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           showBackButton: true,

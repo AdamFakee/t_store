@@ -14,6 +14,7 @@ import 'package:t_store/features/personalization/screens/settings/custom_ui.dart
 import 'package:t_store/features/personalization/screens/settings/upload_data.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/orders/orders.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -42,7 +43,7 @@ class Settings extends StatelessWidget {
                     /// -- header title
                     TAppBar(
                       title: Text(
-                        TTexts.account,
+                        TLanguage.of(context)?.account ?? "",
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
@@ -66,13 +67,13 @@ class Settings extends StatelessWidget {
                 child: Column(
                   children: [
                     /// -- Account settings
-                    TSectionTextHeading(title: TTexts.accountSettings),
+                    TSectionTextHeading(title: TLanguage.of(context)?.accountSettings ?? ""),
                     SizedBox(height: TSizes.spaceBtwItems),
 
                     /// --Address
                     TSettingMenuTile(
-                      title: TTexts.myAddressesTitle,
-                      subTitle: TTexts.myAddressesSubTitle,
+                      title: TLanguage.of(context)?.myAddressesTitle ?? "",
+                      subTitle: TLanguage.of(context)?.myAddressesSubTitle ?? "",
                       icon: Iconsax.safe_home,
                       onTap: () {
                         Get.to(() => Addresses());
@@ -81,8 +82,8 @@ class Settings extends StatelessWidget {
 
                     /// --Cart
                     TSettingMenuTile(
-                      title: TTexts.myCartTitle,
-                      subTitle: TTexts.myCartSubTitle,
+                      title: TLanguage.of(context)?.myCartTitle ?? "",
+                      subTitle: TLanguage.of(context)?.myCartSubTitle ?? "",
                       icon: Iconsax.shopping_cart,
                       onTap: () {
                         Get.to(() => Cart());
@@ -91,37 +92,37 @@ class Settings extends StatelessWidget {
 
                     /// --Orders
                     TSettingMenuTile(
-                      title: TTexts.myOrdersTitle,
-                      subTitle: TTexts.myOrdersSubTitle,
+                      title: TLanguage.of(context)?.myOrdersTitle ?? "",
+                      subTitle: TLanguage.of(context)?.myOrdersSubTitle ?? "",
                       icon: Iconsax.bag_tick,
                       onTap: () {
                         Get.to(() => Orders());
                       },
                     ),
                     TSettingMenuTile(
-                      title: TTexts.bankAccountTitle,
-                      subTitle: TTexts.bankAccountSubTitle,
+                      title: TLanguage.of(context)?.bankAccountTitle ?? "",
+                      subTitle: TLanguage.of(context)?.bankAccountSubTitle ?? "",
                       icon: Iconsax.bank,
                     ),
                     TSettingMenuTile(
-                      title: TTexts.myCouponsTitle,
-                      subTitle: TTexts.myCouponsSubTitle,
+                      title: TLanguage.of(context)?.myCouponsTitle ?? "",
+                      subTitle: TLanguage.of(context)?.myCouponsSubTitle ?? "",
                       icon: Iconsax.discount_shape,
                     ),
                     TSettingMenuTile(
-                      title: TTexts.notificationsTitle,
-                      subTitle: TTexts.notificationsSubTitle,
+                      title: TLanguage.of(context)?.notificationsTitle ?? "",
+                      subTitle: TLanguage.of(context)?.notificationsSubTitle ?? "",
                       icon: Iconsax.notification,
                     ),
                     TSettingMenuTile(
-                      title: TTexts.accountPrivacyTitle,
-                      subTitle: TTexts.accountPrivacySubTitle,
+                      title: TLanguage.of(context)?.accountPrivacyTitle ?? "",
+                      subTitle: TLanguage.of(context)?.accountPrivacySubTitle ?? "",
                       icon: Iconsax.security_card,
                     ),
 
                     /// -- App Settings
                     SizedBox(height: TSizes.spaceBtwSections),
-                    TSectionTextHeading(title: TTexts.appSettings),
+                    TSectionTextHeading(title: TLanguage.of(context)?.appSettings ?? ""),
                     SizedBox(height: TSizes.spaceBtwItems),
 
                     // custom theme, language...
@@ -134,8 +135,8 @@ class Settings extends StatelessWidget {
 
                     // Upload dummy data to cloud
                     TSettingMenuTile(
-                      title: TTexts.loadDataTitle,
-                      subTitle: TTexts.loadDataSubTitle,
+                      title: TLanguage.of(context)?.loadDataTitle ?? "",
+                      subTitle: TLanguage.of(context)?.loadDataSubTitle ?? "",
                       icon: Iconsax.document_upload,
                       onTap: () => Get.to(() => UploadDataScreen()),
                     ),

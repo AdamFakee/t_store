@@ -6,6 +6,7 @@ import 'package:t_store/features/shop/controllers/products/cart_controller.dart'
 import 'package:t_store/features/shop/screens/cart/widgets/cart_item.dart';
 import 'package:t_store/features/shop/screens/checkout/widgets/billing.dart';
 import 'package:t_store/features/shop/screens/checkout/widgets/coupon_code.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -33,11 +34,11 @@ class Checkout extends StatelessWidget {
             ),
           ),
         ),
-        child: Text(TTexts.checkOut),
+        child: Text(TLanguage.of(context)?.checkOut ?? ""),
       ),
       appBar: TAppBar(
         title: Text(
-          TTexts.orderReview,
+          TLanguage.of(context)?.orderReview ?? "",
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         showBackButton: true,

@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/icons/circular_icon.dart';
 import 'package:t_store/features/shop/controllers/products/cart_controller.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -84,7 +85,7 @@ class TProductDetailAddToCart extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)
                 )
               ),
-              child: Text(TTexts.addToCart, style: TextStyle(
+              child: Text(TLanguage.of(context)?.addToCart ?? "", style: TextStyle(
                 color: Colors.white
               ),),
             ),

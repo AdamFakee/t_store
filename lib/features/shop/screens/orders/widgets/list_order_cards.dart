@@ -4,6 +4,7 @@ import 'package:t_store/common/widgets/custom_shapes/containers/rounded_containe
 import 'package:t_store/features/shop/controllers/order_controller.dart';
 import 'package:t_store/features/shop/models/order_model.dart';
 import 'package:t_store/features/shop/screens/orders/widgets/order_card_tile.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -19,14 +20,14 @@ class TListOrderCards extends StatelessWidget {
     return Obx(() {
       return ListView.separated(
         shrinkWrap: true,
-        itemBuilder: (_, index) => orderCard(orderController.orders[index]),
+        itemBuilder: (_, index) => orderCard(orderController.orders[index], context),
         separatorBuilder: (_, _) => SizedBox(height: TSizes.spaceBtwItems),
         itemCount: orderController.orders.length,
       );
     });
   }
 
-  Widget orderCard(OrderModel order) {
+  Widget orderCard(OrderModel order, BuildContext context) {
     return TRoundedContainer(
       showBorder: true,
       padding: EdgeInsets.symmetric(
@@ -66,7 +67,7 @@ class TListOrderCards extends StatelessWidget {
               Expanded(
                 child: TOrderCardTile(
                   subtitle: TFormatter.formatDate(order.date),
-                  title: TTexts.shippingDate,
+                  title: TLanguage.of(context)?.shippingDate ?? "",
                   icon: Icons.date_range_outlined,
                 ),
               ),

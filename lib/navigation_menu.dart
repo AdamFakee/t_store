@@ -5,6 +5,7 @@ import 'package:t_store/features/personalization/screens/settings/settings.dart'
 import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/features/shop/screens/store/store.dart';
 import 'package:t_store/features/shop/screens/wishlist/wishlist.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -31,10 +32,10 @@ class NavigationMenu extends StatelessWidget {
               ? TColors.white.withOpacity(0.1)
               : TColors.black.withOpacity(0.1),
           destinations: [
-            TNavigationDestination(icon: Iconsax.home, label: TTexts.home),
-            TNavigationDestination(icon: Iconsax.shop, label: TTexts.store),
-            TNavigationDestination(icon: Iconsax.heart, label: TTexts.withList),
-            TNavigationDestination(icon: Iconsax.user, label: TTexts.profile),
+            TNavigationDestination(icon: Iconsax.home, label: TLanguage.of(context)?.home ?? ""),
+            TNavigationDestination(icon: Iconsax.shop, label: TLanguage.of(context)?.store ?? ""),
+            TNavigationDestination(icon: Iconsax.heart, label: TLanguage.of(context)?.wishList ?? ""),
+            TNavigationDestination(icon: Iconsax.user, label: TLanguage.of(context)?.profile ?? ""),
           ],
         ),
       ),

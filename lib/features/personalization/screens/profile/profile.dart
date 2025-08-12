@@ -8,6 +8,7 @@ import 'package:t_store/common/widgets/shimmers/profile_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/personalization/controllers/profile_controller.dart';
 import 'package:t_store/features/personalization/screens/profile/widgets/profile_menu.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -29,7 +30,7 @@ class Profile extends StatelessWidget {
       return Scaffold(
         appBar: TAppBar(
           title: Text(
-            TTexts.profile,
+            TLanguage.of(context)?.profile ?? "",
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           showBackButton: true,
@@ -56,7 +57,7 @@ class Profile extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: Text(TTexts.changeProfilePicture),
+                          child: Text(TLanguage.of(context)?.changeProfilePicture ?? ""),
                         ),
                       ],
                     ),
@@ -66,18 +67,18 @@ class Profile extends StatelessWidget {
 
                 /// --Profile Infomation
                 SizedBox(height: TSizes.spaceBtwItems),
-                TSectionTextHeading(title: TTexts.profileInfoTitle),
+                TSectionTextHeading(title: TLanguage.of(context)?.profileInfoTitle ?? ""),
 
                 /// --Name
                 TProfileMenu(
-                  title: TTexts.nameTitle,
+                  title: TLanguage.of(context)?.nameTitle ?? "",
                   value: controller.currentUser.fullName,
                   onPressed: () {},
                   icon: Iconsax.arrow_right_34,
                 ),
                 /// --UserName
                 TProfileMenu(
-                  title: TTexts.usernameTitle,
+                  title: TLanguage.of(context)?.usernameTitle ?? "",
                   value: controller.currentUser.username,
                   onPressed: () {},
                   icon: Iconsax.arrow_right_34,
@@ -87,14 +88,14 @@ class Profile extends StatelessWidget {
 
                 /// --Personal Information
                 SizedBox(height: TSizes.spaceBtwItems),
-                TSectionTextHeading(title: TTexts.personalInfoTitle),
+                TSectionTextHeading(title: TLanguage.of(context)?.personalInfoTitle ?? ""),
                 /// --User Id
                 TProfileMenu(
-                  title: TTexts.userIdTitle,
+                  title: TLanguage.of(context)?.userIdTitle ?? "",
                   value: controller.currentUser.id,
                   onPressed: () {
                     /// --Press to copy UserId
-                    Clipboard.setData(ClipboardData(text: TTexts.userIdValue));
+                    Clipboard.setData(ClipboardData(text: controller.currentUser.id));
 
                     /// --Show alter
                     TSnackBar.successSnackBar(title: "Success", message: "Copy to clipboard");
@@ -103,28 +104,28 @@ class Profile extends StatelessWidget {
                 ),
                 /// --Email
                 TProfileMenu(
-                  title: TTexts.emailTitle,
+                  title: TLanguage.of(context)?.emailTitle ?? "",
                   value: controller.currentUser.email,
                   onPressed: () {},
                   icon: Iconsax.arrow_right_34,
                 ),
                 /// --Phone 
                 TProfileMenu(
-                  title: TTexts.phoneNumberTitle,
+                  title: TLanguage.of(context)?.phoneNumberTitle ?? "",
                   value: controller.currentUser.phoneNumber,
                   onPressed: () {},
                   icon: Iconsax.arrow_right_34,
                 ),
                 /// --gender (fixed)
                 TProfileMenu(
-                  title: TTexts.genderTitle,
+                  title: TLanguage.of(context)?.genderTitle ?? "",
                   value: TTexts.genderValue,
                   onPressed: () {},
                   icon: Iconsax.arrow_right_34,
                 ),
                 /// --date of birth (fixed)
                 TProfileMenu(
-                  title: TTexts.dobTitle,
+                  title: TLanguage.of(context)?.dobTitle ?? "",
                   value: TTexts.dobValue,
                   onPressed: () {},
                   icon: Iconsax.arrow_right_34,
@@ -140,7 +141,7 @@ class Profile extends StatelessWidget {
                       controller.logout();
                     },
                     child: Text(
-                      TTexts.closeAccount,
+                      TLanguage.of(context)?.closeAccount ?? "",
                       style: Theme.of(
                         context,
                       ).textTheme.titleMedium!.apply(color: Colors.red),

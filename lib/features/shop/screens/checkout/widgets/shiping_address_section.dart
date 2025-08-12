@@ -5,6 +5,7 @@ import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/personalization/controllers/address_controller.dart';
 import 'package:t_store/features/personalization/models/address_model.dart';
 import 'package:t_store/features/personalization/screens/addresses/widgets/single_address.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -18,8 +19,8 @@ class TShippingAddressSection extends StatelessWidget {
     return Column(
       children: [
         TSectionTextHeading(
-          title: TTexts.shippingAddress,
-          actionTitle: TTexts.change,
+          title: TLanguage.of(context)?.shippingAddress ?? "",
+          actionTitle: TLanguage.of(context)?.change ?? "",
           actionTitleColor: TColors.primary,
           onTap: () {
             TDraggableBottomSheet.show(

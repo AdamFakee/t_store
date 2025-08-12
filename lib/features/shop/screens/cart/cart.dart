@@ -4,6 +4,7 @@ import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/features/shop/controllers/products/cart_controller.dart';
 import 'package:t_store/features/shop/screens/cart/widgets/cart_item.dart';
 import 'package:t_store/features/shop/screens/checkout/checkout.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
@@ -27,7 +28,7 @@ class Cart extends StatelessWidget {
             )
           )
         ),
-        child: Text(TTexts.checkOut),
+        child: Text(TLanguage.of(context)?.checkOut ?? ""),
       ),
       appBar: TAppBar(
         title: Text("Your Cart", style: Theme.of(context).textTheme.headlineMedium),

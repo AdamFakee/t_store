@@ -7,6 +7,7 @@ import 'package:t_store/common/widgets/readmores/readmore_text.dart';
 import 'package:t_store/common/widgets/texts/section_text_heading.dart';
 import 'package:t_store/features/shop/controllers/products/variation_controller.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
+import 'package:t_store/l10n/app_localizations.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -33,7 +34,7 @@ class TProductDetailAttributesSelection extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  TProductDetailHeadingText(title: TTexts.variation),
+                  TProductDetailHeadingText(title: TLanguage.of(context)?.variation ?? ""),
                   // price & stock status
                   Padding(
                     padding: const EdgeInsets.only(left: TSizes.md),
@@ -46,7 +47,7 @@ class TProductDetailAttributesSelection extends StatelessWidget {
                             TextSpan(
                               children: [
                                 TextSpan(
-                                  text: TTexts.price,
+                                  text: TLanguage.of(context)?.price ?? "",
                                   style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                                 if(controller.selectedVariation.value.salePrice > 0)
@@ -66,7 +67,7 @@ class TProductDetailAttributesSelection extends StatelessWidget {
                             TextSpan(
                               children: [
                                 TextSpan(
-                                  text: TTexts.stock,
+                                  text: TLanguage.of(context)?.stock ?? "",
                                   style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                                 TextSpan(
